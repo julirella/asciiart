@@ -1,5 +1,5 @@
 package models.images
 import java.awt.image.BufferedImage
-class PixelImage(image : BufferedImage){
+case class RgbImage(image : BufferedImage) extends Image {
 
 }

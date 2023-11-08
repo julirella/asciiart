@@ -1,3 +1,3 @@
-//package models.images
-//
-//case class AsciiImage() extends Image
+package models.images
+
+case class AsciiImage(pixels: List[List[Char]]) extends Image

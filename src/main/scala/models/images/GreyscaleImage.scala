@@ -1,5 +1,5 @@
 package models.images
 
-class GreyscaleImage(pixels : List[List[Int]]) extends Image[List[List[Int]]]{
-  override def updateContent(updater: List[List[Int]] => List[List[Int]]): GreyscaleImage = ???
+class GreyscaleImage(pixels : List[List[Int]]) extends Image{
+  override def updateContent[GreyscaleImage](updater: GreyscaleImage => GreyscaleImage): GreyscaleImage = ???
 }
