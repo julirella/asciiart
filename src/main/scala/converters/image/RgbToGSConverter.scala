@@ -1,22 +1,22 @@
 package converters.image
 import helpers.TwoDMapper
-import models.images.{GreyscaleImage, RgbImage}
-import models.pixels.RgbPixel
+import models.images.{GreyScaleImage, RgbImage}
+import models.pixels.{GreyScalePixel, RgbPixel}
 
-class RgbToGSConverter extends ImageConverter[RgbImage, GreyscaleImage, RgbPixel, Int] with TwoDMapper[RgbPixel, Int]{
+class RgbToGSConverter extends ImageConverter[RgbImage, GreyScaleImage, RgbPixel, GreyScalePixel] with TwoDMapper[RgbPixel, GreyScalePixel]{
 
 //  source: https://otfried.org/scala/image.html
-  private def convertPixel(color: RgbPixel): Int = {
+  private def convertPixel(color: RgbPixel): GreyScalePixel = {
 
     val red = (color.red & 0xff0000) / 65536
     val green = (color.green & 0xff00) / 256
     val blue = color.blue & 0xff
 
-    ((0.3 * red) + (0.59 * green) + (0.11 * blue)).toInt
+    GreyScalePixel(((0.3 * red) + (0.59 * green) + (0.11 * blue)).toInt)
   }
 
-  override def convert(from: RgbImage): GreyscaleImage = {
-    GreyscaleImage(map2D(from.getPixels, convertPixel))
+  override def convert(from: RgbImage): GreyScaleImage = {
+    GreyScaleImage(map2D(from.getPixels, convertPixel))
 //    val buffImg = from.image
 //    val height = buffImg.getHeight()
 //    val width = buffImg.getWidth()

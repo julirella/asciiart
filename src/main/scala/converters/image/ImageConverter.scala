@@ -2,7 +2,8 @@ package converters.image
 
 import converters.Converter
 import models.images.Image
+import models.pixels.Pixel
 
-trait ImageConverter[A <: Image[S], B <: Image[T], S, T] extends Converter[A, B]{
+trait ImageConverter[A <: Image[T], B <: Image[S], T <: Pixel, S <: Pixel] extends Converter[A, B]{
 
 }

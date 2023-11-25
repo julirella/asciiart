@@ -1,5 +1,7 @@
 package models.tables
 
+import models.pixels.{AsciiPixel, GreyScalePixel}
+
 abstract class TransformationTable () {
 //  def this(table: Array[Char]) = {
 //    this(table)
@@ -7,8 +9,8 @@ abstract class TransformationTable () {
 //      ???
 //    }
 //  }
-  protected val table: Array[Char] = createTable
-  protected def createTable : Array[Char]
-  def transformPixel(gsPixel : Int) : Char = table(gsPixel)
+  protected val table: Array[AsciiPixel] = createTable
+  protected def createTable : Array[AsciiPixel]
+  def transformPixel(gsPixel : GreyScalePixel) : AsciiPixel = table(gsPixel.value)
 
 }

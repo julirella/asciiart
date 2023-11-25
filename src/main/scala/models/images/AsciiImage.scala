@@ -1,3 +1,5 @@
 package models.images
 
-case class AsciiImage(pixels: List[List[Char]]) extends Image[Char] (pixels)
+import models.pixels.AsciiPixel
+
+case class AsciiImage(private val pixels: List[List[AsciiPixel]]) extends Image[AsciiPixel] (pixels)
