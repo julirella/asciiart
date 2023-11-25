@@ -1,11 +1,12 @@
 package models.tables
 
-abstract class LinearTransformationTable private (private val table : Array[Char], chars: String) extends TransformationTable (table) {
-  def this(chars: String) = {
-    this(createTable, chars)
-  }
+abstract class LinearTransformationTable (chars: String) extends TransformationTable {
+//  def this(chars: String) = {
+//    this(chars)
+//    table = createTable
+//  }
 
-  override def createTable: Array[Char] = {
+  override protected def createTable: Array[Char] = {
     val charsLen : Int = chars.length
     val groupLen : Int = 256 / charsLen
     var groupsWithExtraOne = 256 % charsLen

@@ -1,7 +1,7 @@
-package creators
-
-import models.images.Image
-
-trait Creator {
-  def createImage() : Image = ???
-}
+//package creators
+//
+//import models.images.Image
+//
+//trait Creator {
+//  def createImage() : Image = ???
+//}
