@@ -1,15 +1,9 @@
 package converters.image
-import models.images.{AsciiImage, GreyscaleImage}
 import models.tables.TransformationTable
 
-class TransformationTableApplier private (table: TransformationTable, val characters : String, val tableLength: Int, val longTable: Vector[Int]) extends GSToAsciiConverter {
-  def this(table: TransformationTable) = {
-    this(table, table.getChars, table.getChars.length)
-  }
-  def convertPixel(from: Int): Int = {
+class TransformationTableApplier (table: TransformationTable) extends GSToAsciiConverter {
 
-  }
-  override def convert(from: GreyscaleImage): AsciiImage = {
-    val imageGrid = from.getPixels
+  override def convertPixel(from: Int): Char = {
+    table.transformPixel(from)
   }
 }
