@@ -1,10 +1,12 @@
 package filters.greyScale
 
-case class FlipFilter(axis: Char) extends GreyscaleFilter{
+import models.images.GreyScaleImage
 
-  override def applyFilter(pixels: List[List[Int]]): List[List[Int]] = {
-    if(axis == 'x') pixels.reverse
-    else if (axis == 'y') pixels.map(row => row.reverse)
-    else ???
+case class FlipFilter(axis: Char) extends GreyscaleFilter{
+  override def applyFilter(item: GreyScaleImage): GreyScaleImage = {
+    val pixels = item.getPixels
+    if(axis == 'x') GreyScaleImage(pixels.reverse)
+    else if (axis == 'y') GreyScaleImage(pixels.map(row => row.reverse))
+    else throw new IllegalArgumentException("invalid axis")
   }
 }

@@ -1,12 +1,14 @@
 package filters.greyScale.oneToOne
 
 import filters.greyScale.GreyscaleFilter
+import helpers.TwoDMapper
+import models.images.GreyScaleImage
+import models.pixels.GreyScalePixel
 
-trait OneToOneFilter extends GreyscaleFilter{
-  def applyToOnePixel(pixel: Int): Int
+trait OneToOneFilter extends GreyscaleFilter with TwoDMapper[GreyScalePixel, GreyScalePixel]{
+  def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel
 
-  override def applyFilter(pixels: List[List[Int]]): List[List[Int]] = {
-//    https://stackoverflow.com/questions/10049581/mapping-a-function-over-a-multidimensional-array-in-scala
-    pixels.map(_.map(p => applyToOnePixel(p)))
+  override def applyFilter(item: GreyScaleImage): GreyScaleImage = {
+    GreyScaleImage(map2D(item.getPixels, applyToOnePixel))
   }
 }

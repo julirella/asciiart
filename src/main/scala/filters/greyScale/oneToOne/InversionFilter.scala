@@ -1,7 +1,7 @@
 package filters.greyScale.oneToOne
 
-import filters.greyScale.GreyscaleFilter
+import models.pixels.GreyScalePixel
 
 case class InversionFilter() extends OneToOneFilter {
-  override def applyToOnePixel(pixel: Int): Int = 255 - pixel
+  override def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel =  GreyScalePixel(255 - pixel.value)
 }

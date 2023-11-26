@@ -1,10 +1,12 @@
 package filters.greyScale.oneToOne
 
-case class BrightnessFilter(value: Int) extends OneToOneFilter {
-  override def applyToOnePixel(pixel: Int): Int = {
-    val newPixel = pixel + value
-    if(newPixel > 255) 255
-    else if(newPixel < 0) 0
-    else newPixel
+import models.pixels.GreyScalePixel
+
+case class BrightnessFilter(amount: Int) extends OneToOneFilter {
+  override def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel = {
+    val newPixel = pixel.value + amount
+    if(newPixel > 255) GreyScalePixel(255)
+    else if(newPixel < 0) GreyScalePixel(0)
+    else GreyScalePixel(newPixel)
   }
 }
