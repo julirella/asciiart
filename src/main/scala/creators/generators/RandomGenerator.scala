@@ -1,5 +1,7 @@
-//package creators.generators
-//
-//trait RandomGenerator extends Generator {
-//
-//}
+package creators.generators
+
+import creators.Creator
+
+trait RandomGenerator[T] extends Creator[T] {
+
+}
