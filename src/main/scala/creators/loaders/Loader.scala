@@ -1,8 +1,9 @@
-//package creators.loaders
-//
-//import creators.Creator
-//import models.images.Image
-//
-//abstract class Loader(path: String) extends Creator {
+package creators.loaders
+
+import creators.Creator
+
+import java.io.File
+
+abstract class Loader[T](path: File) extends Creator[Option[T]] {
 //  def checkFormat() : Boolean
-//}
+}
