@@ -1,6 +1,5 @@
-package converters.image
+package converters
 
-import converters.AsciiImageToStringConverter
 import models.images.AsciiImage
 import models.pixels.AsciiPixel
 import org.scalatest.FunSuite

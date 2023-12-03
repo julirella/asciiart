@@ -1,5 +1,5 @@
 package exporters.string
 
-class StringToConsoleExporter extends OutputStreamStringExporter(System.out){
+class StringToConsoleExporter extends StringToOutputStreamExporter(System.out){
 
 }
