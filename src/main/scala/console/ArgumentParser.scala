@@ -2,10 +2,14 @@ package console
 
 import console.arguments.filter.{BrightnessFilterArgument, FilterArgument, FlipFilterArgument, InversionFilterArgument}
 import console.arguments.load.{ImageFromPathArgument, LoadArgument, RandomImageArgument}
+import console.arguments.output.{ConsoleOutputArgument, FileOutputArgument, OutputArgument}
+import console.arguments.table.{BuiltInTableArgument, CustomTableArgument, TableArgument}
 
 class ArgumentParser(args: Array[String]) {
   private var loadArgument: Option[LoadArgument] = None
   private var filterArguments: Array[FilterArgument] = Array[FilterArgument]
+  private var tableArgument: Option[TableArgument] = None
+  private var outputArgument: Option[OutputArgument] = None
 
   private def updateLoadArgument(arg: LoadArgument): Unit = {
     if(loadArgument.isEmpty) loadArgument = Option(arg)
@@ -15,10 +19,22 @@ class ArgumentParser(args: Array[String]) {
   private def addFilterArgument(arg: FilterArgument): Unit = {
     filterArguments = filterArguments.appended(arg)
   }
+
+  private def updateTableArgument(arg: TableArgument): Unit = {
+    if (tableArgument.isEmpty) tableArgument = Option(arg)
+    else throw new IllegalArgumentException("too many table arguments")
+  }
+
+  private def updateOutputArgument(arg: OutputArgument): Unit = {
+    if (outputArgument.isEmpty) outputArgument = Option(arg)
+    else throw new IllegalArgumentException("too many output arguments")
+  }
+
   def parseArguments(): Unit = {
     //TODO: this will break if the last argument is argWithString but no next argument is provided
+    args += "--error" //kind of a hotfix for this
     var argNum = 0
-    while (argNum < args.length) {
+    while (argNum < args.length - 1) {
       args(argNum) match {
         case "--image" => {
           updateLoadArgument(ImageFromPathArgument(args(argNum + 1)))
@@ -36,10 +52,19 @@ class ArgumentParser(args: Array[String]) {
           addFilterArgument(BrightnessFilterArgument(args(argNum + 1)))
           argNum += 1
         }
-        case "--table" => ???
-        case "custom-table" => ???
-        case "output-console" => ???
-        case "output-file" => ???
+        case "--table" => {
+          updateTableArgument(BuiltInTableArgument(args(argNum + 1)))
+          argNum += 1
+        }
+        case "custom-table" => {
+          updateTableArgument(CustomTableArgument(args(argNum + 1)))
+          argNum += 1
+        }
+        case "output-console" => updateOutputArgument(ConsoleOutputArgument())
+        case "output-file" => {
+          updateOutputArgument(FileOutputArgument(args(argNum + 1)))
+          argNum += 1
+        }
       }
       argNum += 1
     }
