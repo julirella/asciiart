@@ -15,8 +15,7 @@ class ImageIOLoader(path: File) extends ImageLoader(path) {
   }
 
   //https://www.geeksforgeeks.org/multidimensional-arrays-in-scala/
-  override def create(): Option[RgbImage] = {
-    try {
+  override def create(): RgbImage = {
       val bufferedImage = ImageIO.read(path)
       val width = bufferedImage.getWidth
       val height = bufferedImage.getHeight
@@ -27,9 +26,6 @@ class ImageIOLoader(path: File) extends ImageLoader(path) {
         }
       }
       val arrayOfLists = tmpImage.map(e => e.toList)
-      Some(RgbImage(arrayOfLists.toList))
-    } catch {
-      case _: Throwable => None
-    }
+      RgbImage(arrayOfLists.toList)
   }
 }
