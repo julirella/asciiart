@@ -10,6 +10,7 @@ trait RandomImageGenerator[I <: Image[P], P <: Pixel] extends RandomGenerator[I]
   private def randomWidth = Random.between(20, 200)
   private def randomHeight = Random.between(20, 150)
   protected def createPixel : P
+  //TODO: factories or something for this
   protected def createArray(height: Int, width: Int): Array[Array[P]]
   protected def createImage(list: List[List[P]]): I
   override def create(): I = {

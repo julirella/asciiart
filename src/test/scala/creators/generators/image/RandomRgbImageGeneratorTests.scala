@@ -9,7 +9,7 @@ class RandomRgbImageGeneratorTests extends FunSuite{
   test("generate image"){
     val image: RgbImage = generator.create()
     val pixels = image.getPixels
-    assert(pixels.length >= 20 && pixels.length <= 200)
-    assert(pixels.head.length >= 20 && pixels.head.length <= 150)
+    assert(pixels.length >= 20 && pixels.length <= 150)
+    assert(pixels.head.length >= 20 && pixels.head.length <= 200)
   }
 }
