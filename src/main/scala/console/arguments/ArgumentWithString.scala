@@ -1,5 +1,5 @@
 package console.arguments
 
 abstract class ArgumentWithString(val str: String) {
-//  def checkString()
+  if(str.startsWith("--")) throw new IllegalArgumentException("no argument for option provided")
 }
