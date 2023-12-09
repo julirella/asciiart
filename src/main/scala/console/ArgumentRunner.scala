@@ -1,16 +1,28 @@
 package console
 
+import console.arguments.filter.FilterArgument
 import console.arguments.load.LoadArgument
-import models.images.RgbImage
+import console.arguments.output.OutputArgument
+import console.arguments.table.TableArgument
+import converters.AsciiImageToStringConverter
+import converters.image.RgbToGSConverter
+import models.images.{AsciiImage, GreyScaleImage, RgbImage}
 
-class ArgumentRunner(val creatorArg: LoadArgument) {
-//  private var imageCreator: Option[Creator[RgbImage]] = None
+class ArgumentRunner(val creatorArg: LoadArgument, val filterArgs: Array[FilterArgument],
+                     val tableArg: TableArgument, val outputArg: OutputArgument) {
   def run() = {
     //load
     val loadedImage: RgbImage = creatorArg.createModule.create()
+
     //filter
+    val gsImage: GreyScaleImage = new RgbToGSConverter().convert(loadedImage)
+    val filteredImage: GreyScaleImage = filterArgs.foldLeft(gsImage)((img, filterArg) => filterArg.createModule.applyFilter(img))
 
     //convert
+    val asciiImage: AsciiImage = tableArg.createModule.convert(filteredImage)
+
     //export
+    val textImage: String = new AsciiImageToStringConverter().convert(asciiImage)
+    outputArg.createModule.export(textImage)
   }
 }

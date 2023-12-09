@@ -29,6 +29,11 @@ class ArgumentParser(args: Array[String]) {
     if (outputArgument.isEmpty) outputArgument = Option(arg)
     else throw new IllegalArgumentException("too many output arguments")
   }
+private def checkArguments(): Unit = {
+  if(loadArgument.isEmpty) throw new IllegalArgumentException("missing load argument")
+  if(tableArgument.isEmpty) throw new IllegalArgumentException("missing table argument")
+  if(outputArgument.isEmpty) throw new IllegalArgumentException("missing output argument")
+}
 
   def parseArguments(): Unit = {
     //TODO: this will break if the last argument is argWithString but no next argument is provided
@@ -67,6 +72,11 @@ class ArgumentParser(args: Array[String]) {
         }
       }
       argNum += 1
+
+      checkArguments()
+
+      val runner = new ArgumentRunner(loadArgument.get, filterArguments, tableArgument.get, outputArgument.get)
+      runner.run()
     }
   }
 }
