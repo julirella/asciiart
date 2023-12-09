@@ -5,9 +5,9 @@ import console.arguments.load.{ImageFromPathArgument, LoadArgument, RandomImageA
 import console.arguments.output.{ConsoleOutputArgument, FileOutputArgument, OutputArgument}
 import console.arguments.table.{BuiltInTableArgument, CustomTableArgument, TableArgument}
 
-class ArgumentParser(args: Array[String]) {
+class ArgumentParser(var args: Array[String]) {
   private var loadArgument: Option[LoadArgument] = None
-  private var filterArguments: Array[FilterArgument] = Array[FilterArgument]
+  private var filterArguments: Array[FilterArgument] = Array[FilterArgument]()
   private var tableArgument: Option[TableArgument] = None
   private var outputArgument: Option[OutputArgument] = None
 
@@ -37,7 +37,7 @@ private def checkArguments(): Unit = {
 
   def parseArguments(): Unit = {
     //TODO: this will break if the last argument is argWithString but no next argument is provided
-    args += "--error" //kind of a hotfix for this
+    args = args.appended("--error") //kind of a hotfix for this
     var argNum = 0
     while (argNum < args.length - 1) {
       args(argNum) match {
@@ -61,12 +61,12 @@ private def checkArguments(): Unit = {
           updateTableArgument(BuiltInTableArgument(args(argNum + 1)))
           argNum += 1
         }
-        case "custom-table" => {
+        case "--custom-table" => {
           updateTableArgument(CustomTableArgument(args(argNum + 1)))
           argNum += 1
         }
-        case "output-console" => updateOutputArgument(ConsoleOutputArgument())
-        case "output-file" => {
+        case "--output-console" => updateOutputArgument(ConsoleOutputArgument())
+        case "--output-file" => {
           updateOutputArgument(FileOutputArgument(args(argNum + 1)))
           argNum += 1
         }

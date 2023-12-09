@@ -1,23 +1,32 @@
-//package filters.greyScale.oneToOne
-//
-//import org.scalatest.FunSuite
-//
-//class InversionFilterTests extends FunSuite{
-////  def filtered(pixels : List[List[Int]]): List[List[Int]] = new InversionFilter().applyFilter(pixels)
-//def filtered(pixel : Int): Int = new InversionFilter().applyToOnePixel(pixel)
-//
-//  test("dark"){
-//    val pixel = 0
-//    assert(filtered(pixel) == 255)
-//  }
-//
-//  test("light"){
-//    val pixel = 255
-//    assert(filtered(pixel) == 0)
-//  }
-//
-//  test("random") {
-//    val pixel = 55
-//    assert(filtered(pixel) == 200)
-//  }
-//}
+package filters.greyScale.oneToOne
+import models.pixels.GreyScalePixel
+import org.scalatest.FunSuite
+
+class InversionFilterTests extends FunSuite {
+
+  test("black to white") {
+    val filter = InversionFilter()
+    val blackPixel = GreyScalePixel(0)
+    val result = filter.applyToOnePixel(blackPixel)
+    val expected = GreyScalePixel(255)
+    assert(result == expected)
+  }
+
+  test("white to black") {
+    val filter = InversionFilter()
+    val whitePixel = GreyScalePixel(255)
+    val result = filter.applyToOnePixel(whitePixel)
+    val expected = GreyScalePixel(0)
+    assert(result == expected)
+  }
+
+  test("middle") {
+    val filter = InversionFilter()
+    val midGrayPixel = GreyScalePixel(128)
+    val result = filter.applyToOnePixel(midGrayPixel)
+    val expected = GreyScalePixel(127) // 255 - 128
+    assert(result == expected)
+  }
+
+}
+
