@@ -41,42 +41,47 @@ private def checkArguments(): Unit = {
     var argNum = 0
     while (argNum < args.length - 1) {
       args(argNum) match {
-        case "--image" => {
+        case "--image" =>
           updateLoadArgument(ImageFromPathArgument(args(argNum + 1)))
           argNum += 1
-        }
-        case "--image-random" => {
+
+        case "--image-random" =>
           updateLoadArgument(RandomImageArgument())
-        }
-        case "--invert" => addFilterArgument(InversionFilterArgument())
-        case "--flip" => {
+
+        case "--invert" =>
+          addFilterArgument(InversionFilterArgument())
+
+        case "--flip" =>
           addFilterArgument(FlipFilterArgument(args(argNum + 1)))
           argNum += 1
-        }
-        case "--brightness" => {
+
+        case "--brightness" =>
           addFilterArgument(BrightnessFilterArgument(args(argNum + 1)))
           argNum += 1
-        }
-        case "--table" => {
+
+        case "--table" =>
           updateTableArgument(BuiltInTableArgument(args(argNum + 1)))
           argNum += 1
-        }
-        case "--custom-table" => {
+
+        case "--custom-table" =>
           updateTableArgument(CustomTableArgument(args(argNum + 1)))
           argNum += 1
-        }
-        case "--output-console" => updateOutputArgument(ConsoleOutputArgument())
-        case "--output-file" => {
+
+        case "--output-console" =>
+          updateOutputArgument(ConsoleOutputArgument())
+
+        case "--output-file" =>
           updateOutputArgument(FileOutputArgument(args(argNum + 1)))
           argNum += 1
-        }
+
+        case other:String => throw new IllegalArgumentException("unknown argument: " + other)
       }
       argNum += 1
+    }
 
       checkArguments()
 
       val runner = new ArgumentRunner(loadArgument.get, filterArguments, tableArgument.get, outputArgument.get)
       runner.run()
-    }
   }
 }
