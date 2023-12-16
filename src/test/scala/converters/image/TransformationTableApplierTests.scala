@@ -1,47 +1,54 @@
 package converters.image
 
+import helpers.TwoDCompare
 import models.images.{AsciiImage, GreyScaleImage}
 import models.pixels.{AsciiPixel, GreyScalePixel}
 import models.tables.{LameTable, PaulBourkesTable, UserDefinedTable}
 import org.scalatest.FunSuite
 
 class TransformationTableApplierTests extends FunSuite{
-  test("lameTable empty list"){
+  val arrCmp = new TwoDCompare
+
+  test("lameTable empty array"){
     val applier = new TransformationTableApplier(new LameTable)
 
-    val from = GreyScaleImage(List(
-      List()
+    val from = GreyScaleImage(Array(
+      Array()
     ))
-    val to = AsciiImage(List(
-      List()
+    val to = AsciiImage(Array(
+      Array()
     ))
-    assert(applier.convert(from) == to)
+    val result = applier.convert(from)
+    assert(arrCmp.cmp2DArray(result.getPixels, to.getPixels))
+
   }
 
   test("userDefinedTable normal"){
     val applier = new TransformationTableApplier(UserDefinedTable("1234"))
 
-    val from = GreyScaleImage(List(
-      List(GreyScalePixel(50), GreyScalePixel(240))
+    val from = GreyScaleImage(Array(
+      Array(GreyScalePixel(50), GreyScalePixel(240))
     ))
-    val to = AsciiImage(List(
-      List(AsciiPixel('1'), AsciiPixel('4'))
+    val to = AsciiImage(Array(
+      Array(AsciiPixel('1'), AsciiPixel('4'))
     ))
-    assert(applier.convert(from) == to)
+    val result = applier.convert(from)
+    assert(arrCmp.cmp2DArray(result.getPixels, to.getPixels))
   }
 
   test("paulBourkesTable weird image shape") {
     val applier = new TransformationTableApplier(PaulBourkesTable())
 
-    val from = GreyScaleImage(List(
-      List(GreyScalePixel(1), GreyScalePixel(255)),
-      List(GreyScalePixel(75))
+    val from = GreyScaleImage(Array(
+      Array(GreyScalePixel(1), GreyScalePixel(255)),
+      Array(GreyScalePixel(75))
     ))
-    val to = AsciiImage(List(
-      List(AsciiPixel(' '), AsciiPixel('@')),
-      List(AsciiPixel(':'))
+    val to = AsciiImage(Array(
+      Array(AsciiPixel(' '), AsciiPixel('@')),
+      Array(AsciiPixel(':'))
     ))
-    assert(applier.convert(from) == to)
+    val result = applier.convert(from)
+    assert(arrCmp.cmp2DArray(result.getPixels, to.getPixels))
   }
 
 }

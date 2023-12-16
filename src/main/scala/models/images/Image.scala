@@ -1,5 +1,6 @@
 package models.images
 
+import helpers.TwoDCompare
 import models.pixels.Pixel
 
 import scala.reflect.ClassTag

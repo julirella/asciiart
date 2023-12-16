@@ -1,5 +1,6 @@
 package creators.loaders
 
+import helpers.TwoDCompare
 import models.images.RgbImage
 import models.pixels.RgbPixel
 import org.scalatest.{BeforeAndAfter, FunSuite, FunSuiteLike}
@@ -9,6 +10,7 @@ import java.io.{File, PrintWriter}
 import javax.imageio.ImageIO
 
 class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
+  val arrCmp = new TwoDCompare
 
   test("onePixel"){
     val red = 40
@@ -22,7 +24,8 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
     val loader = new ImageIOLoader(file)
     val ret = loader.create()
     file.delete()
-    assert(ret == RgbImage(List(List(RgbPixel(red, green, blue)))))
+    val expected = RgbImage(Array(Array(RgbPixel(red, green, blue))))
+    assert(arrCmp.cmp2DArray(ret.getPixels, expected.getPixels))
   }
 
   test("bigger image png"){
@@ -41,9 +44,9 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
     testImg.setRGB(1, 1, (red2 * 65536) + (green2 * 256) + blue2)
     testImg.setRGB(2, 1, (red2 * 65536) + (green2 * 256) + blue2)
 
-    val expected = RgbImage(List(
-      List(RgbPixel(red1, green1, blue1), RgbPixel(red1, green1, blue1), RgbPixel(red1, green1, blue1)),
-      List(RgbPixel(red2, green2, blue2), RgbPixel(red2, green2, blue2), RgbPixel(red2, green2, blue2))
+    val expected = RgbImage(Array(
+      Array(RgbPixel(red1, green1, blue1), RgbPixel(red1, green1, blue1), RgbPixel(red1, green1, blue1)),
+      Array(RgbPixel(red2, green2, blue2), RgbPixel(red2, green2, blue2), RgbPixel(red2, green2, blue2))
     ))
 
     val file = new File("tmp.png")
@@ -52,7 +55,8 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
     val ret = loader.create()
     file.delete()
 
-    assert(ret == expected)
+    assert(arrCmp.cmp2DArray(ret.getPixels, expected.getPixels))
+
   }
 
   test("invalid image (in valid file)") {
