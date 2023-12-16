@@ -16,7 +16,7 @@ class ArgumentRunner(val creatorArg: LoadArgument, val filterArgs: Array[FilterA
 
     //filter
     val gsImage: GreyScaleImage = new RgbToGSConverter().convert(loadedImage)
-    val filteredImage: GreyScaleImage = filterArgs.foldLeft(gsImage)((img, filterArg) => filterArg.createModule.applyFilter(img))
+    val filteredImage: GreyScaleImage = filterArgs.foldLeft(gsImage)((img, filterArg) => img.updatePixels(filterArg.createModule.applyFilter))
 
     //convert
     val asciiImage: AsciiImage = tableArg.createModule.convert(filteredImage)
