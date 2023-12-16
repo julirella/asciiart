@@ -19,13 +19,12 @@ class ImageIOLoader(path: File) extends ImageLoader(path) {
       val bufferedImage = ImageIO.read(path)
       val width = bufferedImage.getWidth
       val height = bufferedImage.getHeight
-      val tmpImage: Array[Array[RgbPixel]] = Array.ofDim[RgbPixel](height, width)
+      val pixels: Array[Array[RgbPixel]] = Array.ofDim[RgbPixel](height, width)
       for (h <- 0 until height) {
         for (w <- 0 until width) {
-          tmpImage(h)(w) = intToRgbPixel(bufferedImage.getRGB(w, h))
+          pixels(h)(w) = intToRgbPixel(bufferedImage.getRGB(w, h))
         }
       }
-      val arrayOfLists = tmpImage.map(e => e.toList)
-      RgbImage(arrayOfLists.toList)
+    RgbImage(pixels)
   }
 }

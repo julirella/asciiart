@@ -4,7 +4,7 @@ import models.images.AsciiImage
 import models.pixels.AsciiPixel
 
 class AsciiImageToStringConverter extends Converter [AsciiImage, String]{
-  private def lineToString(line: List[AsciiPixel]): String = {
+  private def lineToString(line: Array[AsciiPixel]): String = {
     val ret = line.foldLeft("")((str, pixel) => str.appended(pixel.value))
     ret
   }
