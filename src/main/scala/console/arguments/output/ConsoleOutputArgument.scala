@@ -3,7 +3,7 @@ package console.arguments.output
 import exporters.string.{StringExporter, StringToConsoleExporter}
 
 case class ConsoleOutputArgument() extends OutputArgument {
-  override def createModule: StringExporter = {
+  override def createModule: StringToConsoleExporter = {
     new StringToConsoleExporter()
   }
 }

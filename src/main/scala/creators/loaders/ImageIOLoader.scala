@@ -6,7 +6,7 @@ import java.io.File
 import javax.imageio.ImageIO
 //  source: https://otfried.org/scala/image.html
 
-class ImageIOLoader(path: File) extends ImageLoader(path) {
+case class ImageIOLoader(path: File) extends ImageLoader(path) {
   private def intToRgbPixel(from: Int): RgbPixel = {
     val red = (from & 0xff0000) / 65536
     val green = (from & 0xff00) / 256

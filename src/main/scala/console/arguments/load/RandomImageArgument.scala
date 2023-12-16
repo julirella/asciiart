@@ -6,5 +6,5 @@ import creators.generators.image.RandomRgbImageGenerator
 import models.images.RgbImage
 
 case class RandomImageArgument() extends LoadArgument{
-  override def createModule: Creator[RgbImage] = new RandomRgbImageGenerator()
+  override def createModule: RandomRgbImageGenerator = new RandomRgbImageGenerator()
 }

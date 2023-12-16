@@ -36,7 +36,7 @@ private def checkArguments(): Unit = {
 }
 
   def parseArguments(): Unit = {
-    //TODO: this will break if the last argument is argWithString but no next argument is provided
+    // TODO: this will break if the last argument is argWithString but no next argument is provided
     args = args.appended("--error") //kind of a hotfix for this
     var argNum = 0
     while (argNum < args.length - 1) {

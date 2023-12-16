@@ -4,9 +4,9 @@ import console.arguments.ArgumentWithString
 import filters.greyScale.{FlipFilter, GreyscaleFilter}
 
 case class FlipFilterArgument(axis: String) extends ArgumentWithString(axis) with FilterArgument {
-  override def createModule: GreyscaleFilter = {
-    if(axis == "x") new FlipFilter(0)
-    else if(axis == "y") new FlipFilter(1)
-    else throw new IllegalArgumentException("invalid flip axis")
+  require(axis == "x" || axis == "y", "invalid flip axis")
+  override def createModule: FlipFilter = {
+    if (axis == "x") new FlipFilter(0)
+    else  new FlipFilter(1)
   }
 }
