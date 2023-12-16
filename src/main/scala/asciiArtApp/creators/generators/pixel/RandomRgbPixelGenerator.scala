@@ -1,0 +1,14 @@
+package asciiArtApp.creators.generators.pixel
+
+import models.pixels.RgbPixel
+
+import scala.util.Random
+
+class RandomRgbPixelGenerator extends RandomPixelGenerator[RgbPixel]{
+  override def create(): RgbPixel = {
+    val red = Random.between(0, 255)
+    val green = Random.between(0, 255)
+    val blue = Random.between(0, 255)
+    RgbPixel(red, green, blue)
+  }
+}
