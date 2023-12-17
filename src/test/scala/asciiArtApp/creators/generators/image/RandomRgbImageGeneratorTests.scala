@@ -1,6 +1,6 @@
 package asciiArtApp.creators.generators.image
 
-import models.images.RgbImage
+import asciiArtApp.models.images.RgbImage
 import org.scalatest.FunSuite
 
 class RandomRgbImageGeneratorTests extends FunSuite{

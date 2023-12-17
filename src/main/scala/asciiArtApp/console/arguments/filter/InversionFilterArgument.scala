@@ -1,6 +1,6 @@
-package console.arguments.filter
-import filters.greyScale.GreyscaleFilter
-import filters.greyScale.oneToOne.InversionFilter
+package asciiArtApp.console.arguments.filter
+import asciiArtApp.filters.greyScale.GreyscaleFilter
+import asciiArtApp.filters.greyScale.oneToOne.InversionFilter
 
 case class InversionFilterArgument() extends FilterArgument{
   override def createModule: InversionFilter = new InversionFilter()

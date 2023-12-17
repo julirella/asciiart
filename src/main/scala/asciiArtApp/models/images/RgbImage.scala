@@ -1,5 +1,5 @@
-package models.images
-import models.pixels.RgbPixel
+package asciiArtApp.models.images
+import asciiArtApp.models.pixels.RgbPixel
 
 /**
  * Class representing an RGB image - a matrix of RGB pixels

@@ -1,7 +1,7 @@
-package filters.greyScale
+package asciiArtApp.filters.greyScale
 
 import helpers.TwoDCompare
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class FlipFilterTests extends FunSuite {

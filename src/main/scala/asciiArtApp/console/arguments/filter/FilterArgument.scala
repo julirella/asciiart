@@ -1,7 +1,7 @@
-package console.arguments.filter
+package asciiArtApp.console.arguments.filter
 
-import console.arguments.Argument
-import filters.greyScale.GreyscaleFilter
+import asciiArtApp.console.arguments.Argument
+import asciiArtApp.filters.greyScale.GreyscaleFilter
 
 trait FilterArgument extends Argument[GreyscaleFilter]{
 

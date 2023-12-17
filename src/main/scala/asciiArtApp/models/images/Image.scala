@@ -1,7 +1,6 @@
-package models.images
+package asciiArtApp.models.images
 
-import helpers.TwoDCompare
-import models.pixels.Pixel
+import asciiArtApp.models.pixels.Pixel
 
 import scala.reflect.ClassTag
 

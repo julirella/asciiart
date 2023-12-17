@@ -1,7 +1,6 @@
 package asciiArtApp.console.arguments.filter
 
 import asciiArtApp.filters.greyScale.oneToOne.BrightnessFilter
-import console.arguments.filter.BrightnessFilterArgument
 import org.scalatest.FunSuite
 
 class BrightnessFilterArgumentTests extends FunSuite{

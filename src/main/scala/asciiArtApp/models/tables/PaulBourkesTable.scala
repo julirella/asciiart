@@ -1,4 +1,4 @@
-package models.tables
+package asciiArtApp.models.tables
 
 /**
  * A transformation table designed by Paul Bourke

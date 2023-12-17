@@ -1,6 +1,6 @@
-package console.arguments.output
+package asciiArtApp.console.arguments.output
 
-import console.arguments.Argument
+import asciiArtApp.console.arguments.Argument
 import exporters.string.StringExporter
 
 trait OutputArgument extends Argument[StringExporter]{

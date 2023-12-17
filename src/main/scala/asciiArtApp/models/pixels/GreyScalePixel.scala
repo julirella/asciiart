@@ -1,4 +1,4 @@
-package models.pixels
+package asciiArtApp.models.pixels
 
 /**
  * Class representing an 8-bit greyscale pixel

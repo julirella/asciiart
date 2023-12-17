@@ -1,8 +1,8 @@
-package console.arguments.load
+package asciiArtApp.console.arguments.load
 
-import console.arguments.Argument
+import asciiArtApp.console.arguments.Argument
 import creators.Creator
-import models.images.RgbImage
+import asciiArtApp.models.images.RgbImage
 
 trait LoadArgument extends Argument[Creator[RgbImage]] {
 }

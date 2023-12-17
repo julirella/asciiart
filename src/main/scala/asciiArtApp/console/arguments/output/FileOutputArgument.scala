@@ -1,6 +1,6 @@
-package console.arguments.output
+package asciiArtApp.console.arguments.output
 
-import console.arguments.ArgumentWithString
+import asciiArtApp.console.arguments.ArgumentWithString
 import exporters.string.{StringExporter, StringToFileExporter}
 
 import java.io.File

@@ -1,4 +1,4 @@
-package models.pixels
+package asciiArtApp.models.pixels
 
 /**
  * Trait representing one pixel

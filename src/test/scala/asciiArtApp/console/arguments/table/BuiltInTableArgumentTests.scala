@@ -1,7 +1,6 @@
 package asciiArtApp.console.arguments.table
 
-import console.arguments.table.BuiltInTableArgument
-import models.tables.{LameTable, PaulBourkesTable}
+import asciiArtApp.models.tables.{LameTable, PaulBourkesTable}
 import org.scalatest.FunSuite
 
 class BuiltInTableArgumentTests extends FunSuite{

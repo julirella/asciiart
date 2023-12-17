@@ -1,8 +1,8 @@
 package asciiArtApp.creators.generators.image
 
 import asciiArtApp.creators.generators.pixel.RandomRgbPixelGenerator
-import models.images.RgbImage
-import models.pixels.RgbPixel
+import asciiArtApp.models.images.RgbImage
+import asciiArtApp.models.pixels.RgbPixel
 
 /**
  * Class for generating a random RGB image

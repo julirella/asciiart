@@ -1,8 +1,8 @@
-package converters.image
+package asciiArtApp.converters.image
 
 import converters.Converter
-import models.images.Image
-import models.pixels.Pixel
+import asciiArtApp.models.images.Image
+import asciiArtApp.models.pixels.Pixel
 
 /**
  * Convert one type of image to another

@@ -1,9 +1,8 @@
 package asciiArtApp.converters.image
 
-import converters.image.RgbToGSConverter
 import helpers.TwoDCompare
-import models.images.{GreyScaleImage, RgbImage}
-import models.pixels.{GreyScalePixel, RgbPixel}
+import asciiArtApp.models.images.{GreyScaleImage, RgbImage}
+import asciiArtApp.models.pixels.{GreyScalePixel, RgbPixel}
 import org.scalatest.FunSuite
 
 class RgbToGSConverterTests extends FunSuite{

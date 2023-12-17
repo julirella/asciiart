@@ -1,5 +1,5 @@
-package filters.greyScale.oneToOne
-import models.pixels.GreyScalePixel
+package asciiArtApp.filters.greyScale.oneToOne
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class InversionFilterTests extends FunSuite {

@@ -1,6 +1,6 @@
-package converters.image
-import models.pixels.{AsciiPixel, GreyScalePixel}
-import models.tables.TransformationTable
+package asciiArtApp.converters.image
+import asciiArtApp.models.pixels.{AsciiPixel, GreyScalePixel}
+import asciiArtApp.models.tables.TransformationTable
 
 /**
  * Class that uses an ascii transformation table to transform greyscale images to ascii images

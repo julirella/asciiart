@@ -1,4 +1,4 @@
-package console.arguments.output
+package asciiArtApp.console.arguments.output
 
 import exporters.string.{StringExporter, StringToConsoleExporter}
 

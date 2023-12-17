@@ -1,8 +1,7 @@
-package filters.greyScale.oneToOne
+package asciiArtApp.filters.greyScale.oneToOne
 
-import asciiArtApp.filters.greyScale.oneToOne.BrightnessFilter
 import helpers.TwoDCompare
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class OneToOneFilterTests extends FunSuite {

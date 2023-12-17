@@ -1,6 +1,5 @@
 package asciiArtApp.console.arguments.output
 
-import console.arguments.output.FileOutputArgument
 import exporters.string.StringToFileExporter
 import org.scalatest.FunSuite
 

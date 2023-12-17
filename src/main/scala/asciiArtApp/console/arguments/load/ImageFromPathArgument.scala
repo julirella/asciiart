@@ -1,9 +1,9 @@
-package console.arguments.load
+package asciiArtApp.console.arguments.load
 
 import asciiArtApp.creators.loaders.ImageIOLoader
-import console.arguments.{Argument, ArgumentWithString}
+import asciiArtApp.console.arguments.{Argument, ArgumentWithString}
 import creators.Creator
-import models.images.RgbImage
+import asciiArtApp.models.images.RgbImage
 
 import java.io.File
 

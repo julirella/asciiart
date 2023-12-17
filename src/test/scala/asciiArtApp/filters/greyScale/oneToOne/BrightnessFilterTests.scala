@@ -1,6 +1,6 @@
 package asciiArtApp.filters.greyScale.oneToOne
 
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class BrightnessFilterTests extends FunSuite {

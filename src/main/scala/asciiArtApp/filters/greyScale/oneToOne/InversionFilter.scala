@@ -1,6 +1,6 @@
-package filters.greyScale.oneToOne
+package asciiArtApp.filters.greyScale.oneToOne
 
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 
 class InversionFilter() extends OneToOneFilter {
   /**

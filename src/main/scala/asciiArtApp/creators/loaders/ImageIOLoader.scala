@@ -1,7 +1,7 @@
 package asciiArtApp.creators.loaders
 
-import models.images.RgbImage
-import models.pixels.RgbPixel
+import asciiArtApp.models.images.RgbImage
+import asciiArtApp.models.pixels.RgbPixel
 
 import java.io.File
 import javax.imageio.ImageIO

@@ -1,6 +1,6 @@
-package models.images
+package asciiArtApp.models.images
 
-import models.pixels.AsciiPixel
+import asciiArtApp.models.pixels.AsciiPixel
 
 /**
  * Class representing an ascii image - a matrix of ascii pixels

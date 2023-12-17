@@ -1,6 +1,6 @@
-package filters.greyScale
+package asciiArtApp.filters.greyScale
 
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 
 /**
  * Filter that flips a 2D array vertically or horizontally

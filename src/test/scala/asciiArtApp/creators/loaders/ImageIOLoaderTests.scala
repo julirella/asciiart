@@ -1,8 +1,8 @@
 package asciiArtApp.creators.loaders
 
 import helpers.TwoDCompare
-import models.images.RgbImage
-import models.pixels.RgbPixel
+import asciiArtApp.models.images.RgbImage
+import asciiArtApp.models.pixels.RgbPixel
 import org.scalatest.{BeforeAndAfter, FunSuiteLike}
 
 import java.awt.image.BufferedImage

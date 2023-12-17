@@ -1,7 +1,7 @@
-package converters.image
+package asciiArtApp.converters.image
 import helpers.TwoDMapper
-import models.images.{GreyScaleImage, RgbImage}
-import models.pixels.{GreyScalePixel, RgbPixel}
+import asciiArtApp.models.images.{GreyScaleImage, RgbImage}
+import asciiArtApp.models.pixels.{GreyScalePixel, RgbPixel}
 
 class RgbToGSConverter extends ImageConverter[RgbImage, GreyScaleImage, RgbPixel, GreyScalePixel]{
 

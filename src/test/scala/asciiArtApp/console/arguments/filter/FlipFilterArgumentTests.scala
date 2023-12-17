@@ -1,7 +1,6 @@
 package asciiArtApp.console.arguments.filter
 
-import console.arguments.filter.{BrightnessFilterArgument, FlipFilterArgument}
-import filters.greyScale.FlipFilter
+import asciiArtApp.filters.greyScale.FlipFilter
 import org.scalatest.FunSuite
 
 class FlipFilterArgumentTests extends FunSuite{

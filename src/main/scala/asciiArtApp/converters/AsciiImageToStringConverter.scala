@@ -1,8 +1,8 @@
 package asciiArtApp.converters
 
 import converters.Converter
-import models.images.AsciiImage
-import models.pixels.AsciiPixel
+import asciiArtApp.models.images.AsciiImage
+import asciiArtApp.models.pixels.AsciiPixel
 
 class AsciiImageToStringConverter extends Converter [AsciiImage, String]{
   /**

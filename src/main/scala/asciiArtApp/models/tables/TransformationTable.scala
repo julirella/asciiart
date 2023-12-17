@@ -1,6 +1,6 @@
-package models.tables
+package asciiArtApp.models.tables
 
-import models.pixels.{AsciiPixel, GreyScalePixel}
+import asciiArtApp.models.pixels.{AsciiPixel, GreyScalePixel}
 
 /**
  * A transformation table for ascii art

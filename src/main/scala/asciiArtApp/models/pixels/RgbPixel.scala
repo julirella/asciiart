@@ -1,4 +1,4 @@
-package models.pixels
+package asciiArtApp.models.pixels
 
 /**
  * Class representing an RGB pixel consisting of 8-bit color elements

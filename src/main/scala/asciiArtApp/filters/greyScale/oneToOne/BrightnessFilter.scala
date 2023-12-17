@@ -1,7 +1,6 @@
 package asciiArtApp.filters.greyScale.oneToOne
 
-import filters.greyScale.oneToOne.OneToOneFilter
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 
 /**
  * Filter that changes brightness of a greyscale pixel by amount

@@ -1,8 +1,8 @@
-package converters.image
+package asciiArtApp.converters.image
 
-import models.images.{AsciiImage, GreyScaleImage}
+import asciiArtApp.models.images.{AsciiImage, GreyScaleImage}
 import helpers.TwoDMapper
-import models.pixels.{AsciiPixel, GreyScalePixel}
+import asciiArtApp.models.pixels.{AsciiPixel, GreyScalePixel}
 
 trait GSToAsciiConverter extends ImageConverter[GreyScaleImage, AsciiImage, GreyScalePixel, AsciiPixel] {
   /**

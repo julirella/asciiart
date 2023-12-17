@@ -1,8 +1,8 @@
-package console.arguments.table
+package asciiArtApp.console.arguments.table
 
-import console.arguments.ArgumentWithString
-import converters.image.TransformationTableApplier
-import models.tables.UserDefinedTable
+import asciiArtApp.console.arguments.ArgumentWithString
+import asciiArtApp.converters.image.TransformationTableApplier
+import asciiArtApp.models.tables.UserDefinedTable
 
 case class CustomTableArgument(chars: String) extends ArgumentWithString(chars) with TableArgument{
   override def createModule: TransformationTableApplier = {

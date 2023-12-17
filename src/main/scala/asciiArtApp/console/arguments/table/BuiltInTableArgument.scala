@@ -1,8 +1,8 @@
-package console.arguments.table
+package asciiArtApp.console.arguments.table
 
-import console.arguments.ArgumentWithString
-import converters.image.TransformationTableApplier
-import models.tables.{LameTable, PaulBourkesTable}
+import asciiArtApp.console.arguments.ArgumentWithString
+import asciiArtApp.converters.image.TransformationTableApplier
+import asciiArtApp.models.tables.{LameTable, PaulBourkesTable}
 
 case class BuiltInTableArgument(name: String) extends ArgumentWithString(name) with TableArgument {
   require(name == "paul-bourkes" || name == "lame", "invalid table name")

@@ -1,7 +1,6 @@
 package asciiArtApp.models.tables
 
-import models.pixels.GreyScalePixel
-import models.tables.PaulBourkesTable
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class PaulBourkesTableTest extends FunSuite{

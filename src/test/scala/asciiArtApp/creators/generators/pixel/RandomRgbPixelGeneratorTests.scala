@@ -1,6 +1,6 @@
 package asciiArtApp.creators.generators.pixel
 
-import models.pixels.RgbPixel
+import asciiArtApp.models.pixels.RgbPixel
 import org.scalatest.FunSuite
 
 class RandomRgbPixelGeneratorTests extends FunSuite{

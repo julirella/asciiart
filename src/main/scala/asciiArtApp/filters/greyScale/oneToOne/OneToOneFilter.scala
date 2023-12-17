@@ -1,8 +1,8 @@
-package filters.greyScale.oneToOne
+package asciiArtApp.filters.greyScale.oneToOne
 
-import filters.greyScale.GreyscaleFilter
+import asciiArtApp.filters.greyScale.GreyscaleFilter
 import helpers.TwoDMapper
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 
 trait OneToOneFilter extends GreyscaleFilter{
   /**

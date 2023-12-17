@@ -1,7 +1,6 @@
 package asciiArtApp.console.arguments.load
 
 import asciiArtApp.creators.loaders.ImageIOLoader
-import console.arguments.load.ImageFromPathArgument
 import org.scalatest.FunSuite
 
 import java.io.{File, PrintWriter}

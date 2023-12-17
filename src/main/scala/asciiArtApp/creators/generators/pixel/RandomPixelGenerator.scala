@@ -1,7 +1,7 @@
 package asciiArtApp.creators.generators.pixel
 
 import creators.generators.RandomGenerator
-import models.pixels.Pixel
+import asciiArtApp.models.pixels.Pixel
 
 /**
  * Trait for generating a random pixel

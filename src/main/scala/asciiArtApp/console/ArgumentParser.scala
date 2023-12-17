@@ -1,9 +1,9 @@
-package console
+package asciiArtApp.console
 
-import console.arguments.filter.{BrightnessFilterArgument, FilterArgument, FlipFilterArgument, InversionFilterArgument}
-import console.arguments.load.{ImageFromPathArgument, LoadArgument, RandomImageArgument}
-import console.arguments.output.{ConsoleOutputArgument, FileOutputArgument, OutputArgument}
-import console.arguments.table.{BuiltInTableArgument, CustomTableArgument, TableArgument}
+import asciiArtApp.console.arguments.filter.{BrightnessFilterArgument, FilterArgument, FlipFilterArgument, InversionFilterArgument}
+import asciiArtApp.console.arguments.load.{ImageFromPathArgument, LoadArgument, RandomImageArgument}
+import asciiArtApp.console.arguments.output.{ConsoleOutputArgument, FileOutputArgument, OutputArgument}
+import asciiArtApp.console.arguments.table.{BuiltInTableArgument, CustomTableArgument, TableArgument}
 
 class ArgumentParser(var args: Array[String]) {
   private var loadArgument: Option[LoadArgument] = None

@@ -1,6 +1,5 @@
 package helpers
 
-import models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 class TwoDMapperTests extends FunSuite {
   val arrayComparer = new TwoDCompare

@@ -1,4 +1,4 @@
-package console
+package asciiArtApp.console
 
 object Main extends App {
   private val argumentParser = new ArgumentParser(args)

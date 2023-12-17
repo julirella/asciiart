@@ -1,6 +1,5 @@
 package asciiArtApp.models.pixels
 
-import models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class GrayScalePixelTests extends FunSuite{

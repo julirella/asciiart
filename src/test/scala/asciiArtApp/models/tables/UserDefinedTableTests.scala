@@ -1,7 +1,6 @@
 package asciiArtApp.models.tables
 
-import models.pixels.GreyScalePixel
-import models.tables.UserDefinedTable
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class UserDefinedTableTests extends FunSuite{

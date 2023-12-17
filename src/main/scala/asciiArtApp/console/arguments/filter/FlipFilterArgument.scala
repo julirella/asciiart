@@ -1,7 +1,7 @@
-package console.arguments.filter
+package asciiArtApp.console.arguments.filter
 
-import console.arguments.ArgumentWithString
-import filters.greyScale.{FlipFilter, GreyscaleFilter}
+import asciiArtApp.console.arguments.ArgumentWithString
+import asciiArtApp.filters.greyScale.{FlipFilter, GreyscaleFilter}
 
 case class FlipFilterArgument(axis: String) extends ArgumentWithString(axis) with FilterArgument {
   require(axis == "x" || axis == "y", "invalid flip axis")

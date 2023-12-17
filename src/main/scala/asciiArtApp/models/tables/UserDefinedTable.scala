@@ -1,4 +1,4 @@
-package models.tables
+package asciiArtApp.models.tables
 
 /**
  * A linear transformation table passed in by the user

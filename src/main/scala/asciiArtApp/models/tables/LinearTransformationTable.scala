@@ -1,6 +1,6 @@
-package models.tables
+package asciiArtApp.models.tables
 
-import models.pixels.AsciiPixel
+import asciiArtApp.models.pixels.AsciiPixel
 
 abstract class LinearTransformationTable (chars: String) extends TransformationTable {
   /**

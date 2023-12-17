@@ -1,12 +1,12 @@
-package console
+package asciiArtApp.console
 
 import asciiArtApp.converters.AsciiImageToStringConverter
-import console.arguments.filter.FilterArgument
-import console.arguments.load.LoadArgument
-import console.arguments.output.OutputArgument
-import console.arguments.table.TableArgument
-import converters.image.RgbToGSConverter
-import models.images.{AsciiImage, GreyScaleImage, RgbImage}
+import asciiArtApp.console.arguments.filter.FilterArgument
+import asciiArtApp.console.arguments.load.LoadArgument
+import asciiArtApp.console.arguments.output.OutputArgument
+import asciiArtApp.console.arguments.table.TableArgument
+import asciiArtApp.converters.image.RgbToGSConverter
+import asciiArtApp.models.images.{AsciiImage, GreyScaleImage, RgbImage}
 
 class ArgumentRunner(val creatorArg: LoadArgument, val filterArgs: Array[FilterArgument],
                      val tableArg: TableArgument, val outputArg: OutputArgument) {

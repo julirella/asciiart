@@ -1,7 +1,7 @@
-package filters.greyScale
+package asciiArtApp.filters.greyScale
 
 import filters.Filter
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 
 /**
  * Filter that filters a 2D array of greyscale pixels

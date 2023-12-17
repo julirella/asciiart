@@ -2,8 +2,8 @@ package asciiArtApp.creators.generators.image
 
 import asciiArtApp.creators.generators.pixel.RandomPixelGenerator
 import creators.generators.RandomGenerator
-import models.images.Image
-import models.pixels.Pixel
+import asciiArtApp.models.images.Image
+import asciiArtApp.models.pixels.Pixel
 
 import scala.reflect.ClassTag
 import scala.util.Random

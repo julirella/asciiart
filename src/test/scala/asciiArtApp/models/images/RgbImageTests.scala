@@ -1,8 +1,7 @@
 package asciiArtApp.models.images
 
 import helpers.TwoDCompare
-import models.images.RgbImage
-import models.pixels.RgbPixel
+import asciiArtApp.models.pixels.RgbPixel
 import org.scalatest.FunSuite
 
 class RgbImageTests extends FunSuite{

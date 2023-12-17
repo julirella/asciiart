@@ -1,8 +1,7 @@
 package asciiArtApp.models.images
 
 import helpers.TwoDCompare
-import models.images.GreyScaleImage
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class GreyScaleImageTests extends FunSuite{

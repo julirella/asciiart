@@ -1,10 +1,9 @@
 package asciiArtApp.converters.image
 
-import converters.image.TransformationTableApplier
 import helpers.TwoDCompare
-import models.images.{AsciiImage, GreyScaleImage}
-import models.pixels.{AsciiPixel, GreyScalePixel}
-import models.tables.{LameTable, PaulBourkesTable, UserDefinedTable}
+import asciiArtApp.models.images.{AsciiImage, GreyScaleImage}
+import asciiArtApp.models.pixels.{AsciiPixel, GreyScalePixel}
+import asciiArtApp.models.tables.{LameTable, PaulBourkesTable, UserDefinedTable}
 import org.scalatest.FunSuite
 
 class TransformationTableApplierTests extends FunSuite{

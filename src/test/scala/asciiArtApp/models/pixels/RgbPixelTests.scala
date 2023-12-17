@@ -1,6 +1,5 @@
 package asciiArtApp.models.pixels
 
-import models.pixels.RgbPixel
 import org.scalatest.FunSuite
 
 class RgbPixelTests extends FunSuite{

@@ -1,8 +1,7 @@
 package asciiArtApp.console.arguments.table
 
-import console.arguments.table.CustomTableArgument
-import converters.image.TransformationTableApplier
-import models.tables.UserDefinedTable
+import asciiArtApp.converters.image.TransformationTableApplier
+import asciiArtApp.models.tables.UserDefinedTable
 import org.scalatest.FunSuite
 
 class CustomTableArgumentTests extends FunSuite{

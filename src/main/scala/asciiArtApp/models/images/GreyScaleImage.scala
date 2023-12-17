@@ -1,6 +1,6 @@
-package models.images
+package asciiArtApp.models.images
 
-import models.pixels.GreyScalePixel
+import asciiArtApp.models.pixels.GreyScalePixel
 
 /**
  * Class representing a greyscale image - a matrix of greyscale pixels
