@@ -20,6 +20,6 @@ class RgbToGSConverter extends ImageConverter[RgbImage, GreyScaleImage, RgbPixel
    *  @return The created greyscale image
    */
   override def convert(from: RgbImage): GreyScaleImage = {
-    GreyScaleImage(new TwoDMapper().map2D(from.getPixels, convertPixel))
+    new GreyScaleImage(new TwoDMapper().map2D(from.getPixels, convertPixel))
   }
 }

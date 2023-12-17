@@ -8,7 +8,7 @@ import models.pixels.GreyScalePixel
  *
  * @param amount the amount by which to change the brightness
  */
-case class BrightnessFilter(amount: Int) extends OneToOneFilter {
+class BrightnessFilter(val amount: Int) extends OneToOneFilter {
   /**
    * Change the brightness of a greyscale pixel by amount
     * @param pixel the pixel

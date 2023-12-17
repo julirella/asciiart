@@ -7,14 +7,14 @@ import org.scalatest.FunSuite
 class AsciiImageToStringConverterTests extends FunSuite{
   val converter = new AsciiImageToStringConverter()
   test("1D array"){
-    val from = AsciiImage(Array(
+    val from = new AsciiImage(Array(
       Array(AsciiPixel('a'), AsciiPixel('b'), AsciiPixel('c'))
     ))
     val to = "abc\n"
     assert(converter.convert(from) == to)
   }
   test("2D array") {
-    val from = AsciiImage(Array(
+    val from = new AsciiImage(Array(
       Array(AsciiPixel('a'), AsciiPixel('b'), AsciiPixel('c')),
       Array(AsciiPixel('d'), AsciiPixel('e'), AsciiPixel('f')),
       Array(AsciiPixel('h'), AsciiPixel('i'), AsciiPixel('j'))
@@ -25,7 +25,7 @@ class AsciiImageToStringConverterTests extends FunSuite{
   }
 
   test("weird array"){
-    val from = AsciiImage(Array(
+    val from = new AsciiImage(Array(
       Array(AsciiPixel('a'), AsciiPixel('b'), AsciiPixel('c')),
       Array(),
       Array(AsciiPixel('h'), AsciiPixel('i'))

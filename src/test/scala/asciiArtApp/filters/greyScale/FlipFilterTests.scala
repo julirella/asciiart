@@ -8,7 +8,7 @@ class FlipFilterTests extends FunSuite {
   val arrCmp = new TwoDCompare
 
   test("x axis flip") {
-    val filter = FlipFilter(axis = 0)
+    val filter = new FlipFilter(axis = 0)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
       Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
@@ -27,7 +27,7 @@ class FlipFilterTests extends FunSuite {
   }
 
   test("y axis flip") {
-    val filter = FlipFilter(axis = 1)
+    val filter = new FlipFilter(axis = 1)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
       Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
@@ -47,7 +47,7 @@ class FlipFilterTests extends FunSuite {
   }
 
   test("non-square image x axis") {
-    val filter0 = FlipFilter(axis = 0)
+    val filter0 = new FlipFilter(axis = 0)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2)),
       Array(GreyScalePixel(3), GreyScalePixel(4)),
@@ -65,7 +65,7 @@ class FlipFilterTests extends FunSuite {
   }
 
   test("non-square image y axis") {
-    val filter1 = FlipFilter(axis = 1)
+    val filter1 = new FlipFilter(axis = 1)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2)),
       Array(GreyScalePixel(3), GreyScalePixel(4)),
@@ -83,7 +83,7 @@ class FlipFilterTests extends FunSuite {
   }
 
   test("empty image x axis") {
-    val filter = FlipFilter(axis = 0)
+    val filter = new FlipFilter(axis = 0)
     val inputImage = Array[Array[GreyScalePixel]]()
     val result = filter.applyFilter(inputImage)
     val expectedOutput = Array[Array[GreyScalePixel]]()
@@ -91,7 +91,7 @@ class FlipFilterTests extends FunSuite {
   }
 
   test("empty image y axis") {
-    val filter = FlipFilter(axis = 1)
+    val filter = new FlipFilter(axis = 1)
     val inputImage = Array[Array[GreyScalePixel]]()
     val result = filter.applyFilter(inputImage)
     val expectedOutput = Array[Array[GreyScalePixel]]()
@@ -99,7 +99,7 @@ class FlipFilterTests extends FunSuite {
   }
 
   test("flip mustn't modify original array") {
-    val filter = FlipFilter(axis = 0)
+    val filter = new FlipFilter(axis = 0)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
       Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
@@ -114,7 +114,7 @@ class FlipFilterTests extends FunSuite {
 
   test("wrong axis") {
     assertThrows[IllegalArgumentException]{
-      FlipFilter(2)
+      new FlipFilter(2)
     }
   }
 }

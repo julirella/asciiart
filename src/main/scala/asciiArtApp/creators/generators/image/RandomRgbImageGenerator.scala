@@ -9,5 +9,5 @@ import models.pixels.RgbPixel
  */
 class RandomRgbImageGenerator extends RandomImageGenerator[RgbImage, RgbPixel]{
   override protected val pixelGenerator = new RandomRgbPixelGenerator
-  override protected def createImage(pixels: Array[Array[RgbPixel]]): RgbImage = RgbImage(pixels)
+  override protected def createImage(pixels: Array[Array[RgbPixel]]): RgbImage = new RgbImage(pixels)
 }

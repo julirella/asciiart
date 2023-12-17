@@ -7,7 +7,7 @@ import models.pixels.GreyScalePixel
  *
  * @param axis The axis along which to flip, 0 for x axis, 1 for y axis
  */
-case class FlipFilter(axis: Int) extends GreyscaleFilter{
+class FlipFilter(val axis: Int) extends GreyscaleFilter{
   require(axis == 0 || axis == 1, "invalid axis")
   /**
    * Flip an array of greyscale pixels vertically or horizontally

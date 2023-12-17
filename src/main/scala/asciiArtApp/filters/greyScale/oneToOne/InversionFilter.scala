@@ -2,7 +2,7 @@ package filters.greyScale.oneToOne
 
 import models.pixels.GreyScalePixel
 
-case class InversionFilter() extends OneToOneFilter {
+class InversionFilter() extends OneToOneFilter {
   /**
    * Invert a greyscale pixel, ie subtract its value from 255
    *

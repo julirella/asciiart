@@ -6,9 +6,7 @@ import models.tables.TransformationTable
  * Class that uses an ascii transformation table to transform greyscale images to ascii images
  * @param table the transformation table used
  */
-class TransformationTableApplier (table: TransformationTable) extends GSToAsciiConverter {
-  def getTable: TransformationTable = table
-
+class TransformationTableApplier (val table: TransformationTable) extends GSToAsciiConverter {
   /**
    * Convert greyscale pixel to ascii pixel using transformation table
     * @param from the pixel to convert from

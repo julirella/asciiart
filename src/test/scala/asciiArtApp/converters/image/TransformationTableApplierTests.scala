@@ -13,10 +13,10 @@ class TransformationTableApplierTests extends FunSuite{
   test("lameTable empty array"){
     val applier = new TransformationTableApplier(new LameTable)
 
-    val from = GreyScaleImage(Array(
+    val from = new GreyScaleImage(Array(
       Array()
     ))
-    val to = AsciiImage(Array(
+    val to = new AsciiImage(Array(
       Array()
     ))
     val result = applier.convert(from)
@@ -27,10 +27,10 @@ class TransformationTableApplierTests extends FunSuite{
   test("userDefinedTable normal"){
     val applier = new TransformationTableApplier(UserDefinedTable("1234"))
 
-    val from = GreyScaleImage(Array(
+    val from = new GreyScaleImage(Array(
       Array(GreyScalePixel(50), GreyScalePixel(240))
     ))
-    val to = AsciiImage(Array(
+    val to = new AsciiImage(Array(
       Array(AsciiPixel('1'), AsciiPixel('4'))
     ))
     val result = applier.convert(from)
@@ -40,11 +40,11 @@ class TransformationTableApplierTests extends FunSuite{
   test("paulBourkesTable weird image shape") {
     val applier = new TransformationTableApplier(PaulBourkesTable())
 
-    val from = GreyScaleImage(Array(
+    val from = new GreyScaleImage(Array(
       Array(GreyScalePixel(1), GreyScalePixel(255)),
       Array(GreyScalePixel(75))
     ))
-    val to = AsciiImage(Array(
+    val to = new AsciiImage(Array(
       Array(AsciiPixel(' '), AsciiPixel('@')),
       Array(AsciiPixel(':'))
     ))

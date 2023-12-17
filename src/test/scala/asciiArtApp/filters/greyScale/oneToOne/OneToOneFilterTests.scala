@@ -67,7 +67,7 @@ class OneToOneFilterTests extends FunSuite {
   }
 
   test("invert mustn't modify original array") {
-    val filter = InversionFilter()
+    val filter = new InversionFilter()
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
       Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
@@ -81,7 +81,7 @@ class OneToOneFilterTests extends FunSuite {
   }
 
   test("brightness change mustn't modify original array") {
-    val filter = BrightnessFilter(amount = -10)
+    val filter = new BrightnessFilter(amount = -10)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
       Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),

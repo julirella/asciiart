@@ -24,7 +24,7 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
     val loader = new ImageIOLoader(file)
     val ret = loader.create()
     file.delete()
-    val expected = RgbImage(Array(Array(RgbPixel(red, green, blue))))
+    val expected = new RgbImage(Array(Array(new RgbPixel(red, green, blue))))
     assert(arrCmp.cmp2DArray(ret.getPixels, expected.getPixels))
   }
 
@@ -44,9 +44,9 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
     testImg.setRGB(1, 1, (red2 * 65536) + (green2 * 256) + blue2)
     testImg.setRGB(2, 1, (red2 * 65536) + (green2 * 256) + blue2)
 
-    val expected = RgbImage(Array(
-      Array(RgbPixel(red1, green1, blue1), RgbPixel(red1, green1, blue1), RgbPixel(red1, green1, blue1)),
-      Array(RgbPixel(red2, green2, blue2), RgbPixel(red2, green2, blue2), RgbPixel(red2, green2, blue2))
+    val expected = new RgbImage(Array(
+      Array(new RgbPixel(red1, green1, blue1), new RgbPixel(red1, green1, blue1), new RgbPixel(red1, green1, blue1)),
+      Array(new RgbPixel(red2, green2, blue2), new RgbPixel(red2, green2, blue2), new RgbPixel(red2, green2, blue2))
     ))
 
     val file = new File("tmp.png")

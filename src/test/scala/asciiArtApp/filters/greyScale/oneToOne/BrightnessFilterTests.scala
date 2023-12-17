@@ -6,7 +6,7 @@ import org.scalatest.FunSuite
 class BrightnessFilterTests extends FunSuite {
 
   test("increase brightness from 0") {
-    val filter = BrightnessFilter(amount = 50)
+    val filter = new BrightnessFilter(amount = 50)
     val blackPixel = GreyScalePixel(0)
     val result = filter.applyToOnePixel(blackPixel)
     val expected = GreyScalePixel(50)
@@ -14,7 +14,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("decrease brightness from maximum") {
-    val filter = BrightnessFilter(amount = -50)
+    val filter = new BrightnessFilter(amount = -50)
     val whitePixel = GreyScalePixel(255)
     val result = filter.applyToOnePixel(whitePixel)
     val expected = GreyScalePixel(205)
@@ -22,7 +22,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("increase brightness from middle") {
-    val filter = BrightnessFilter(amount = 30)
+    val filter = new BrightnessFilter(amount = 30)
     val midGrayPixel = GreyScalePixel(128)
     val result = filter.applyToOnePixel(midGrayPixel)
     val expected = GreyScalePixel(158)
@@ -30,7 +30,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("decrease brightness beyond minimum") {
-    val filter = BrightnessFilter(amount = -300)
+    val filter = new BrightnessFilter(amount = -300)
     val maxPixel = GreyScalePixel(255)
     val result = filter.applyToOnePixel(maxPixel)
     val expected = GreyScalePixel(0)
@@ -38,7 +38,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("increase brightness beyond maximum") {
-    val filter = BrightnessFilter(amount = 300)
+    val filter = new BrightnessFilter(amount = 300)
     val minPixel = GreyScalePixel(0)
     val result = filter.applyToOnePixel(minPixel)
     val expected = GreyScalePixel(255)
@@ -46,7 +46,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("brightness change mustn't modify original pixel"){
-    val filter = BrightnessFilter(amount = 50)
+    val filter = new BrightnessFilter(amount = 50)
     val pixel = GreyScalePixel(10)
     val originalVal = pixel.value
     filter.applyToOnePixel(pixel)
@@ -55,7 +55,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("brightness change over max mustn't modify original pixel") {
-    val filter = BrightnessFilter(amount = 300)
+    val filter = new BrightnessFilter(amount = 300)
     val pixel = GreyScalePixel(10)
     val originalVal = pixel.value
     filter.applyToOnePixel(pixel)
@@ -64,7 +64,7 @@ class BrightnessFilterTests extends FunSuite {
   }
 
   test("brightness change bellow min mustn't modify original pixel") {
-    val filter = BrightnessFilter(amount = -300)
+    val filter = new BrightnessFilter(amount = -300)
     val pixel = GreyScalePixel(10)
     val originalVal = pixel.value
     filter.applyToOnePixel(pixel)

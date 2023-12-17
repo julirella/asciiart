@@ -7,8 +7,8 @@ import models.pixels.AsciiPixel
  *
  * @param pixels the matrix of pixels
  */
-case class AsciiImage(private val pixels: Array[Array[AsciiPixel]]) extends Image[AsciiPixel] (pixels) {
+class AsciiImage(private val pixels: Array[Array[AsciiPixel]]) extends Image[AsciiPixel] (pixels) {
   override def updatePixels(updater: Array[Array[AsciiPixel]] => Array[Array[AsciiPixel]]): AsciiImage = {
-    AsciiImage(updater(getPixels))
+    new AsciiImage(updater(getPixels))
   }
 }

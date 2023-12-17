@@ -4,7 +4,7 @@ import models.images.{AsciiImage, GreyScaleImage}
 import helpers.TwoDMapper
 import models.pixels.{AsciiPixel, GreyScalePixel}
 
-abstract class GSToAsciiConverter extends ImageConverter[GreyScaleImage, AsciiImage, GreyScalePixel, AsciiPixel] {
+trait GSToAsciiConverter extends ImageConverter[GreyScaleImage, AsciiImage, GreyScalePixel, AsciiPixel] {
   /**
    * convert greyscale image to ascii image
    *
@@ -12,6 +12,6 @@ abstract class GSToAsciiConverter extends ImageConverter[GreyScaleImage, AsciiIm
    *  @return The created ascii image
    */
   override def convert(from: GreyScaleImage): AsciiImage = {
-    AsciiImage(new TwoDMapper().map2D(from.getPixels, convertPixel))
+    new AsciiImage(new TwoDMapper().map2D(from.getPixels, convertPixel))
   }
 }

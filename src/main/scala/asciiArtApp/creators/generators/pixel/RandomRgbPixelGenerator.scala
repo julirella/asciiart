@@ -14,6 +14,6 @@ class RandomRgbPixelGenerator extends RandomPixelGenerator[RgbPixel]{
     val red = Random.between(0, 255)
     val green = Random.between(0, 255)
     val blue = Random.between(0, 255)
-    RgbPixel(red, green, blue)
+    new RgbPixel(red, green, blue)
   }
 }
