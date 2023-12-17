@@ -59,8 +59,7 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
 
   }
 
-  test("invalid image (in valid file)") {
-    //TODO:figure out how to break it
+  test("bigger image jpg") {
     val red1 = 2
     val green1 = 2
     val blue1 = 2
@@ -70,19 +69,33 @@ class ImageIOLoaderTests extends FunSuiteLike with BeforeAndAfter{
 
     val testImg = new BufferedImage(3, 2, BufferedImage.TYPE_INT_RGB)
     testImg.setRGB(0, 0, (red1 * 65536) + (green1 * 256) + blue1)
+    testImg.setRGB(1, 0, (red1 * 65536) + (green1 * 256) + blue1)
     testImg.setRGB(2, 0, (red1 * 65536) + (green1 * 256) + blue1)
     testImg.setRGB(0, 1, (red2 * 65536) + (green2 * 256) + blue2)
     testImg.setRGB(1, 1, (red2 * 65536) + (green2 * 256) + blue2)
     testImg.setRGB(2, 1, (red2 * 65536) + (green2 * 256) + blue2)
 
-    val file = new File("tmp.png")
-    ImageIO.write(testImg, "png", file)
+    val expected = new RgbImage(Array(
+      Array(new RgbPixel(red1, green1, blue1), new RgbPixel(red1, green1, blue1), new RgbPixel(red1, green1, blue1)),
+      Array(new RgbPixel(red2, green2, blue2), new RgbPixel(red2, green2, blue2), new RgbPixel(red2, green2, blue2))
+    ))
+
+    val file = new File("tmp.jpg")
+    ImageIO.write(testImg, "jpg", file)
     val loader = new ImageIOLoader(file)
     val ret = loader.create()
     file.delete()
 
-//    assert(ret.isEmpty)
+    assert(arrCmp.cmp2DArray(ret.getPixels, expected.getPixels))
 
+  }
+
+  test("invalid image (in valid file)") {
+    assertThrows[NullPointerException] {
+      val file = new File("images/tests/broken.jpg")
+      val loader = new ImageIOLoader(file)
+      val ret = loader.create()
+    }
   }
 }
 
