@@ -13,7 +13,7 @@ class BrightnessFilter(val amount: Int) extends OneToOneFilter {
     * @param pixel the pixel
    * @return A new pixel with changed brightness
    */
-  override def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel = {
+  override protected def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel = {
     val newPixel = pixel.value + amount
     if(newPixel > 255) GreyScalePixel(255)
     else if(newPixel < 0) GreyScalePixel(0)

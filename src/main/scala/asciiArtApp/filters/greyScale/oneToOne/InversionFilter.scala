@@ -9,5 +9,5 @@ class InversionFilter() extends OneToOneFilter {
    * @param pixel the pixel to be inverted
    * @return A new, inverted pixel
    */
-  override def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel =  GreyScalePixel(255 - pixel.value)
+  override protected def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel =  GreyScalePixel(255 - pixel.value)
 }

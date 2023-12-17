@@ -11,7 +11,7 @@ trait OneToOneFilter extends GreyscaleFilter{
    * @param pixel The pixel to be filtered
    * @return A new, filtered pixel
    */
-  def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel
+  protected def applyToOnePixel(pixel: GreyScalePixel): GreyScalePixel
 
   /**
    * Calls the applyToOnePixel method on each greyscale pixel of a 2D array
