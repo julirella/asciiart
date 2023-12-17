@@ -4,5 +4,10 @@ import creators.Creator
 
 import java.io.File
 
-abstract class Loader[T](path: File) extends Creator[T] {
+/**
+ * Loads something from a file
+ *
+ * @param file the file to load from
+ */
+abstract class Loader[T](file: File) extends Creator[T] {
 }
