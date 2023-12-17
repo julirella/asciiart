@@ -33,4 +33,10 @@ class AsciiImageToStringConverterTests extends FunSuite{
     val to = "abc\n\nhi\n"
     assert(converter.convert(from) == to)
   }
+
+  test("empty") {
+    val from = new AsciiImage(Array.empty)
+    val to = ""
+    assert(converter.convert(from) == to)
+  }
 }
