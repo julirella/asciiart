@@ -9,7 +9,13 @@ class RgbPixelTests extends FunSuite{
     assert(pixel.red == 0 && pixel.blue == 255 && pixel.green == 0)
   }
 
-  test("wrong values") {
+  test("wrong values low") {
     assertThrows[IllegalArgumentException] { new RgbPixel(-1, 0, 0) }
+  }
+
+  test("wrong values high") {
+    assertThrows[IllegalArgumentException] {
+      new RgbPixel(256, 0, 0)
+    }
   }
 }

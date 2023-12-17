@@ -17,7 +17,7 @@ abstract class RandomImageGenerator[I <: Image[P], P <: Pixel : ClassTag] extend
 
   /**
    * Generate random image
-   *  @return The created thing
+   *  @return The generated image
    */
   override def create(): I = {
     val width = randomWidth

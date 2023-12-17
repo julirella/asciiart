@@ -3,14 +3,14 @@ package helpers
 import org.scalatest.FunSuite
 
 class TwoDCompareTests extends FunSuite{
-  test("Comparing two empty 2D arrays should return true") {
+  test("empty") {
     val comparer = new TwoDCompare
     val left: Array[Array[Int]] = Array.empty
     val right: Array[Array[Int]] = Array.empty
     assert(comparer.cmp2DArray(left, right))
   }
 
-  test("Comparing two equal non-empty 2D arrays should return true") {
+  test("same shape, same elements") {
     val comparer = new TwoDCompare
     val left: Array[Array[Int]] = Array(
       Array(1, 2, 3),
@@ -25,7 +25,7 @@ class TwoDCompareTests extends FunSuite{
     assert(comparer.cmp2DArray(left, right))
   }
 
-  test("Comparing two non-equal 2D arrays with different lengths should return false") {
+  test("different row amount") {
     val comparer = new TwoDCompare
     val left: Array[Array[Int]] = Array(
       Array(1, 2, 3),
@@ -39,7 +39,7 @@ class TwoDCompareTests extends FunSuite{
     assert(!comparer.cmp2DArray(left, right))
   }
 
-  test("Comparing two non-equal 2D arrays with different elements should return false") {
+  test("same shape, different elements") {
     val comparer = new TwoDCompare
     val left: Array[Array[Int]] = Array(
       Array(1, 2, 3),
@@ -54,7 +54,7 @@ class TwoDCompareTests extends FunSuite{
     assert(!comparer.cmp2DArray(left, right))
   }
 
-  test("Comparing two arrays with the same length but different inner arrays should return false") {
+  test("same number of rows, different row lengths") {
     val comparer = new TwoDCompare
     val left: Array[Array[Int]] = Array(
       Array(1, 2, 3),
@@ -64,7 +64,7 @@ class TwoDCompareTests extends FunSuite{
     val right: Array[Array[Int]] = Array(
       Array(1, 2, 3),
       Array(4, 5, 6),
-      Array(7, 8, 9, 10) // Different length inner array
+      Array(7, 8, 9, 10)
     )
     assert(!comparer.cmp2DArray(left, right))
   }
@@ -91,6 +91,17 @@ class TwoDCompareTests extends FunSuite{
       Array("1", "2", "3"),
       Array("4", "5", "6"),
       Array("7", "8", "9")
+    )
+    assert(comparer.cmp2DArray(left, right))
+  }
+
+  test("1x1 array") {
+    val comparer = new TwoDCompare
+    val left: Array[Array[Int]] = Array(
+      Array(1)
+    )
+    val right: Array[Array[Int]] = Array(
+      Array(1)
     )
     assert(comparer.cmp2DArray(left, right))
   }

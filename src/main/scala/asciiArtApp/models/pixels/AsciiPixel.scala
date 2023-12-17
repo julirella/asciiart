@@ -6,5 +6,5 @@ package asciiArtApp.models.pixels
  * @param value the character
  */
 case class AsciiPixel (val value: Char) extends Pixel {
-  require(value >= 32 && value <= 126)
+  require(value >= 32 && value <= 126, "wrong ascii pixel value")
 }
