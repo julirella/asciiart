@@ -5,6 +5,10 @@ import models.images.RgbImage
 
 import java.io.File
 
-abstract class ImageLoader(path: File) extends Loader[RgbImage](path){
+/**
+ * Class that loads an image from a file
+ * @param file the file to load the image from
+ */
+abstract class ImageLoader(file: File) extends Loader[RgbImage](file){
 
 }

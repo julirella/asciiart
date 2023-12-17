@@ -1,5 +1,6 @@
 package asciiArtApp.creators.generators.image
 
+import asciiArtApp.creators.generators.pixel.RandomPixelGenerator
 import creators.generators.RandomGenerator
 import models.images.Image
 import models.pixels.Pixel
@@ -8,17 +9,23 @@ import scala.reflect.ClassTag
 import scala.util.Random
 
 abstract class RandomImageGenerator[I <: Image[P], P <: Pixel : ClassTag] extends RandomGenerator[I]{
+  protected val pixelGenerator : RandomPixelGenerator[P]
   private def randomWidth = Random.between(20, 200)
   private def randomHeight = Random.between(20, 150)
-  protected def createPixel : P
+  private def generatePixel : P = pixelGenerator.create()
   protected def createImage(pixels: Array[Array[P]]): I
+
+  /**
+   * Generate random image
+   *  @return The created thing
+   */
   override def create(): I = {
     val width = randomWidth
     val height = randomHeight
     val pixels = Array.ofDim[P](height, width)
     for(w <- 0 until width)
       for(h <- 0 until height)
-        pixels(h)(w) = createPixel
+        pixels(h)(w) = generatePixel
     createImage(pixels)
   }
 }

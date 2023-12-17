@@ -14,7 +14,7 @@ class ImageFromPathArgumentTests extends FunSuite{
     val printWriter = new PrintWriter(file)
     val argument = ImageFromPathArgument(path)
     val imageLoader: ImageIOLoader = argument.createModule
-    assert(imageLoader.path == file)
+    assert(imageLoader.file == file)
     file.delete()
   }
 
@@ -24,7 +24,7 @@ class ImageFromPathArgumentTests extends FunSuite{
     val printWriter = new PrintWriter(file)
     val argument = ImageFromPathArgument(path)
     val imageLoader: ImageIOLoader = argument.createModule
-    assert(imageLoader.path == file)
+    assert(imageLoader.file == file)
     file.delete()
   }
 

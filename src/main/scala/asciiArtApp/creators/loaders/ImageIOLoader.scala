@@ -7,7 +7,13 @@ import java.io.File
 import javax.imageio.ImageIO
 //  source: https://otfried.org/scala/image.html
 
-case class ImageIOLoader(path: File) extends ImageLoader(path) {
+case class ImageIOLoader(file: File) extends ImageLoader(file) {
+  /**
+   * convert a pixel from ImageIO rgb pixel format to RgbPixel
+   *
+   * @param from integer representing ImageIO rgb pixel
+   * @return the converted RgbPixel
+   */
   private def intToRgbPixel(from: Int): RgbPixel = {
     val red = (from & 0xff0000) / 65536
     val green = (from & 0xff00) / 256
@@ -16,8 +22,14 @@ case class ImageIOLoader(path: File) extends ImageLoader(path) {
   }
 
   //https://www.geeksforgeeks.org/multidimensional-arrays-in-scala/
+
+  /**
+   * Load an image from file using ImageIO and convert it to RgbImage
+   *
+   *  @return The created RgbImage
+   */
   override def create(): RgbImage = {
-      val bufferedImage = ImageIO.read(path)
+      val bufferedImage = ImageIO.read(file)
       val width = bufferedImage.getWidth
       val height = bufferedImage.getHeight
       val pixels: Array[Array[RgbPixel]] = Array.ofDim[RgbPixel](height, width)
