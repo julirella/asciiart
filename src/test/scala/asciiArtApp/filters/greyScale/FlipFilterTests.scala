@@ -46,9 +46,8 @@ class FlipFilterTests extends FunSuite {
 
   }
 
-  test("non-square image") {
+  test("non-square image x axis") {
     val filter0 = FlipFilter(axis = 0)
-    val filter1 = FlipFilter(axis = 1)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2)),
       Array(GreyScalePixel(3), GreyScalePixel(4)),
@@ -62,28 +61,60 @@ class FlipFilterTests extends FunSuite {
       Array(GreyScalePixel(1), GreyScalePixel(2))
     )
 
+    assert(arrCmp.cmp2DArray(result0, expectedOutput0))
+  }
+
+  test("non-square image y axis") {
+    val filter1 = FlipFilter(axis = 1)
+    val inputImage = Array(
+      Array(GreyScalePixel(1), GreyScalePixel(2)),
+      Array(GreyScalePixel(3), GreyScalePixel(4)),
+      Array(GreyScalePixel(5), GreyScalePixel(6))
+    )
+
     val result1 = filter1.applyFilter(inputImage)
     val expectedOutput1 = Array(
       Array(GreyScalePixel(2), GreyScalePixel(1)),
       Array(GreyScalePixel(4), GreyScalePixel(3)),
       Array(GreyScalePixel(6), GreyScalePixel(5))
     )
-
-    assert(arrCmp.cmp2DArray(result0, expectedOutput0))
     assert(arrCmp.cmp2DArray(result1, expectedOutput1))
 
   }
 
-  test("wrong axis") {
-    val filter = FlipFilter(axis = 2)
+  test("empty image x axis") {
+    val filter = FlipFilter(axis = 0)
+    val inputImage = Array[Array[GreyScalePixel]]()
+    val result = filter.applyFilter(inputImage)
+    val expectedOutput = Array[Array[GreyScalePixel]]()
+    assert(arrCmp.cmp2DArray(result, expectedOutput))
+  }
+
+  test("empty image y axis") {
+    val filter = FlipFilter(axis = 1)
+    val inputImage = Array[Array[GreyScalePixel]]()
+    val result = filter.applyFilter(inputImage)
+    val expectedOutput = Array[Array[GreyScalePixel]]()
+    assert(arrCmp.cmp2DArray(result, expectedOutput))
+  }
+
+  test("flip mustn't modify original array") {
+    val filter = FlipFilter(axis = 0)
     val inputImage = Array(
       Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
       Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
       Array(GreyScalePixel(7), GreyScalePixel(8), GreyScalePixel(9))
     )
+    val originalArray = inputImage.map(a => a.clone())
 
-    intercept[IllegalArgumentException] {
-      filter.applyFilter(inputImage)
+    filter.applyFilter(inputImage)
+
+    assert(arrCmp.cmp2DArray(inputImage, originalArray))
+  }
+
+  test("wrong axis") {
+    assertThrows[IllegalArgumentException]{
+      FlipFilter(2)
     }
   }
 }

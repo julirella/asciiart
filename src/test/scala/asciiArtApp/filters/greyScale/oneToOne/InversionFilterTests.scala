@@ -28,5 +28,13 @@ class InversionFilterTests extends FunSuite {
     assert(result == expected)
   }
 
+  test("inversion filter mustn't modify original pixel"){
+    val filter = InversionFilter()
+    val pixel = GreyScalePixel(25)
+    val originalVal = pixel.value
+    filter.applyToOnePixel(pixel)
+    assert(originalVal == pixel.value)
+  }
+
 }
 

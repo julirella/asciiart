@@ -1,10 +1,11 @@
-package filters.greyScale.oneToOne
+package asciiArtApp.filters.greyScale.oneToOne
+
 import models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
 
 class BrightnessFilterTests extends FunSuite {
 
-  test("Increasing brightness of a black pixel should result in a brighter pixel") {
+  test("increase brightness from 0") {
     val filter = BrightnessFilter(amount = 50)
     val blackPixel = GreyScalePixel(0)
     val result = filter.applyToOnePixel(blackPixel)
@@ -12,7 +13,7 @@ class BrightnessFilterTests extends FunSuite {
     assert(result == expected)
   }
 
-  test("Decreasing brightness of a white pixel should result in a darker pixel") {
+  test("decrease brightness from maximum") {
     val filter = BrightnessFilter(amount = -50)
     val whitePixel = GreyScalePixel(255)
     val result = filter.applyToOnePixel(whitePixel)
@@ -20,7 +21,7 @@ class BrightnessFilterTests extends FunSuite {
     assert(result == expected)
   }
 
-  test("Increasing brightness of a mid-gray pixel should result in a brighter pixel") {
+  test("increase brightness from middle") {
     val filter = BrightnessFilter(amount = 30)
     val midGrayPixel = GreyScalePixel(128)
     val result = filter.applyToOnePixel(midGrayPixel)
@@ -28,7 +29,7 @@ class BrightnessFilterTests extends FunSuite {
     assert(result == expected)
   }
 
-  test("Decreasing brightness of a pixel with the maximum value should result in a pixel with the minimum value") {
+  test("decrease brightness beyond minimum") {
     val filter = BrightnessFilter(amount = -300)
     val maxPixel = GreyScalePixel(255)
     val result = filter.applyToOnePixel(maxPixel)
@@ -36,7 +37,7 @@ class BrightnessFilterTests extends FunSuite {
     assert(result == expected)
   }
 
-  test("Increasing brightness of a pixel with the minimum value should result in a pixel with the maximum value") {
+  test("increase brightness beyond maximum") {
     val filter = BrightnessFilter(amount = 300)
     val minPixel = GreyScalePixel(0)
     val result = filter.applyToOnePixel(minPixel)
@@ -44,28 +45,31 @@ class BrightnessFilterTests extends FunSuite {
     assert(result == expected)
   }
 
-  test("Applying zero brightness change should result in the same pixel value") {
-    val filter = BrightnessFilter(amount = 0)
-    val randomPixelValue = scala.util.Random.nextInt(256)
-    val randomPixel = GreyScalePixel(randomPixelValue)
-    val result = filter.applyToOnePixel(randomPixel)
-    assert(result == randomPixel)
+  test("brightness change mustn't modify original pixel"){
+    val filter = BrightnessFilter(amount = 50)
+    val pixel = GreyScalePixel(10)
+    val originalVal = pixel.value
+    filter.applyToOnePixel(pixel)
+    val newVal = pixel.value
+    assert(originalVal == newVal)
   }
 
-  test("Increasing brightness beyond the maximum should result in a white pixel") {
+  test("brightness change over max mustn't modify original pixel") {
     val filter = BrightnessFilter(amount = 300)
-    val randomPixel = GreyScalePixel(100)
-    val result = filter.applyToOnePixel(randomPixel)
-    val expected = GreyScalePixel(255)
-    assert(result == expected)
+    val pixel = GreyScalePixel(10)
+    val originalVal = pixel.value
+    filter.applyToOnePixel(pixel)
+    val newVal = pixel.value
+    assert(originalVal == newVal)
   }
 
-  test("Decreasing brightness beyond the minimum should result in a black pixel") {
+  test("brightness change bellow min mustn't modify original pixel") {
     val filter = BrightnessFilter(amount = -300)
-    val randomPixel = GreyScalePixel(150)
-    val result = filter.applyToOnePixel(randomPixel)
-    val expected = GreyScalePixel(0)
-    assert(result == expected)
+    val pixel = GreyScalePixel(10)
+    val originalVal = pixel.value
+    filter.applyToOnePixel(pixel)
+    val newVal = pixel.value
+    assert(originalVal == newVal)
   }
 }
 

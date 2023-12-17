@@ -1,5 +1,6 @@
 package filters.greyScale.oneToOne
 
+import asciiArtApp.filters.greyScale.oneToOne.BrightnessFilter
 import helpers.TwoDCompare
 import models.pixels.GreyScalePixel
 import org.scalatest.FunSuite
@@ -63,5 +64,33 @@ class OneToOneFilterTests extends FunSuite {
     val expectedOutput = Array[Array[GreyScalePixel]]()
 
     assert(arrCmp.cmp2DArray(result, expectedOutput))
+  }
+
+  test("invert mustn't modify original array") {
+    val filter = InversionFilter()
+    val inputImage = Array(
+      Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
+      Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
+      Array(GreyScalePixel(7), GreyScalePixel(8), GreyScalePixel(9))
+    )
+    val originalArray = inputImage.map(a => a.clone())
+
+    filter.applyFilter(inputImage)
+
+    assert(arrCmp.cmp2DArray(inputImage, originalArray))
+  }
+
+  test("brightness change mustn't modify original array") {
+    val filter = BrightnessFilter(amount = -10)
+    val inputImage = Array(
+      Array(GreyScalePixel(1), GreyScalePixel(2), GreyScalePixel(3)),
+      Array(GreyScalePixel(4), GreyScalePixel(5), GreyScalePixel(6)),
+      Array(GreyScalePixel(7), GreyScalePixel(8), GreyScalePixel(9))
+    )
+    val originalArray = inputImage.map(a => a.clone())
+
+    filter.applyFilter(inputImage)
+
+    assert(arrCmp.cmp2DArray(inputImage, originalArray))
   }
 }

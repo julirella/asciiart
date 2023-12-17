@@ -1,7 +1,7 @@
 package console.arguments.filter
 
+import asciiArtApp.filters.greyScale.oneToOne.BrightnessFilter
 import console.arguments.ArgumentWithString
-import filters.greyScale.oneToOne.BrightnessFilter
 
 case class BrightnessFilterArgument(value: String) extends ArgumentWithString(value) with FilterArgument {
   require(value.toIntOption.isDefined, "brightness value must be an integer")
