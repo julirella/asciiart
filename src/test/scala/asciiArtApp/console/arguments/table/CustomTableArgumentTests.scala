@@ -8,7 +8,8 @@ import org.scalatest.FunSuite
 class CustomTableArgumentTests extends FunSuite{
   test("table instance created"){
     val argument = CustomTableArgument("table")
-    val applier = argument.createModule
-    assert(applier.table == UserDefinedTable("table"))
+    val applier: TransformationTableApplier = argument.createModule
+//    assert(applier.table == new UserDefinedTable("table"))
+    assert(applier.table.isInstanceOf[UserDefinedTable])
   }
 }

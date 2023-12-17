@@ -5,7 +5,7 @@ import models.tables.UserDefinedTable
 import org.scalatest.FunSuite
 
 class UserDefinedTableTests extends FunSuite{
-  val table: UserDefinedTable = UserDefinedTable("abc")
+  val table: UserDefinedTable = new UserDefinedTable("abc")
   def transformed(from: Int): Char = table.transformPixel(GreyScalePixel(from)).value
 
   test("first group end") {
@@ -23,22 +23,22 @@ class UserDefinedTableTests extends FunSuite{
 
   test("table too long"){
     assertThrows[IllegalArgumentException]{
-      UserDefinedTable("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      new UserDefinedTable("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     }
   }
 
   test("table too short") {
     assertThrows[IllegalArgumentException] {
-      UserDefinedTable("")
+      new UserDefinedTable("")
     }
   }
   test("table just right short") {
-    val okTable = UserDefinedTable("a")
+    val okTable = new UserDefinedTable("a")
     assert(okTable.transformPixel(GreyScalePixel(42)).value == 'a')
   }
 
   test("table just right long") {
-    val okTable = UserDefinedTable("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    val okTable = new UserDefinedTable("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     assert(okTable.transformPixel(GreyScalePixel(42)).value == 'a')
   }
 }

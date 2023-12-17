@@ -25,7 +25,7 @@ class TransformationTableApplierTests extends FunSuite{
   }
 
   test("userDefinedTable normal"){
-    val applier = new TransformationTableApplier(UserDefinedTable("1234"))
+    val applier = new TransformationTableApplier(new UserDefinedTable("1234"))
 
     val from = new GreyScaleImage(Array(
       Array(GreyScalePixel(50), GreyScalePixel(240))

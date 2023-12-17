@@ -5,7 +5,7 @@ import models.pixels.{AsciiPixel, GreyScalePixel}
 /**
  * A transformation table for ascii art
  */
-abstract class TransformationTable () {
+abstract class TransformationTable {
 
   /**
    * The table formatted as an array of 256 ascii pixels, each representing the character a greyscale value will map to
