@@ -10,6 +10,9 @@ import asciiArtApp.models.images.{AsciiImage, GreyScaleImage, RgbImage}
 
 class ArgumentRunner(val creatorArg: LoadArgument, val filterArgs: Array[FilterArgument],
                      val tableArg: TableArgument, val outputArg: OutputArgument) {
+  /**
+   * Run the whole ascii conversion
+   */
   def run(): Unit = {
     //load
     val loadedImage: RgbImage = creatorArg.createModule.create()

@@ -11,33 +11,61 @@ class ArgumentParser(var args: Array[String]) {
   private var tableArgument: Option[TableArgument] = None
   private var outputArgument: Option[OutputArgument] = None
 
+  /**
+   * Add load argument and make sure there is only one
+   *
+   * @param arg the argument
+   */
   private def updateLoadArgument(arg: LoadArgument): Unit = {
     if(loadArgument.isEmpty) loadArgument = Option(arg)
     else throw new IllegalArgumentException("too many load arguments")
   }
 
+  /**
+   * Add filter argument to array
+   *
+   * @param arg the argument
+   */
   private def addFilterArgument(arg: FilterArgument): Unit = {
     filterArguments = filterArguments.appended(arg)
   }
 
+  /**
+   * Add table argument and make sure there is only one
+   *
+   * @param arg the argument
+   */
   private def updateTableArgument(arg: TableArgument): Unit = {
     if (tableArgument.isEmpty) tableArgument = Option(arg)
     else throw new IllegalArgumentException("too many table arguments")
   }
 
+  /**
+   * Add output argument and make sure there is only one
+   *
+   * @param arg the argument
+   */
   private def updateOutputArgument(arg: OutputArgument): Unit = {
     if (outputArgument.isEmpty) outputArgument = Option(arg)
     else throw new IllegalArgumentException("too many output arguments")
   }
-private def checkArguments(): Unit = {
-  if(loadArgument.isEmpty) throw new IllegalArgumentException("missing load argument")
-  if(tableArgument.isEmpty) throw new IllegalArgumentException("missing table argument")
-  if(outputArgument.isEmpty) throw new IllegalArgumentException("missing output argument")
-}
 
+  /**
+   * check that all mandatory arguments were provided
+   */
+  private def checkArguments(): Unit = {
+    if(loadArgument.isEmpty) throw new IllegalArgumentException("missing load argument")
+    if(tableArgument.isEmpty) throw new IllegalArgumentException("missing table argument")
+    if(outputArgument.isEmpty) throw new IllegalArgumentException("missing output argument")
+  }
+
+  /**
+   * Iterates over all input arguments and deals with them
+   */
   def parseArguments(): Unit = {
-    // TODO: this will break if the last argument is argWithString but no next argument is provided
-    args = args.appended("--error") //kind of a hotfix for this
+    //add dummy argument to end of array so as to prevent reaching beyond the array when user passes an argument that
+    //expects a follow-up but does not provide one
+    args = args.appended("--error")
     var argNum = 0
     while (argNum < args.length - 1) {
       args(argNum) match {
