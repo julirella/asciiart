@@ -11,7 +11,6 @@ class AsciiImageTests extends FunSuite{
   test("identity") {
     val image = AsciiImage(Array(Array(AsciiPixel('A'))))
     val updatedImage = image.updatePixels(identity)
-    assert(updatedImage == image)
     assert(arrCmp.cmp2DArray(updatedImage.getPixels, image.getPixels))
   }
 
@@ -28,6 +27,14 @@ class AsciiImageTests extends FunSuite{
     val expectedImage = AsciiImage(Array(Array(AsciiPixel('X'), AsciiPixel('X'))))
     assert(arrCmp.cmp2DArray(updatedImage.getPixels, expectedImage.getPixels))
 
+  }
+
+  test("update mustn't change original image"){
+    val image = AsciiImage(Array(Array(AsciiPixel('A')), Array(AsciiPixel('B'))))
+    val originalPixels = image.getPixels
+    image.updatePixels(_.map(_.map(_ => AsciiPixel('X'))))
+    val newPixels = image.getPixels
+    assert(arrCmp.cmp2DArray(originalPixels, newPixels))
   }
 
   test("getter") {

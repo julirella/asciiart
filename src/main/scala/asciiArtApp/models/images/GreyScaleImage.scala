@@ -2,8 +2,13 @@ package models.images
 
 import models.pixels.GreyScalePixel
 
+/**
+ * Class representing a greyscale image - a matrix of greyscale pixels
+ *
+ * @param pixels the matrix of pixels
+ */
 case class GreyScaleImage(private val pixels : Array[Array[GreyScalePixel]]) extends Image[GreyScalePixel] (pixels){
   override def updatePixels(updater: Array[Array[GreyScalePixel]] => Array[Array[GreyScalePixel]]): GreyScaleImage = {
-    GreyScaleImage(updater(pixels))
+    GreyScaleImage(updater(getPixels))
   }
 }

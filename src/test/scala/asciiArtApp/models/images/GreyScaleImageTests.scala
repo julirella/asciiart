@@ -35,6 +35,14 @@ class GreyScaleImageTests extends FunSuite{
 
   }
 
+  test("update mustn't change original image") {
+    val image = GreyScaleImage(Array(Array(GreyScalePixel(1)), Array(GreyScalePixel(2))))
+    val originalPixels = image.getPixels
+    image.updatePixels(_.reverse)
+    val newPixels = image.getPixels
+    assert(arrCmp.cmp2DArray(originalPixels, newPixels))
+  }
+
   test("getter") {
     val originalPixels = Array(Array(GreyScalePixel(1), GreyScalePixel(2)))
     val image = GreyScaleImage(originalPixels)

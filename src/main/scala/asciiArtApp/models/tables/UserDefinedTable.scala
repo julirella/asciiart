@@ -1,7 +1,8 @@
 package models.tables
 
+/**
+ * A linear transformation table passed in by the user
+ * @param chars a string from which the table will  be created
+ */
 case class UserDefinedTable(chars: String) extends LinearTransformationTable(chars){
-  //TODO: maybe this to assert proper linearity
-  //  require(chars.length == chars.toSeq.distinct.length)
-
 }

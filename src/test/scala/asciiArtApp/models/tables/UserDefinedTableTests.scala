@@ -20,4 +20,25 @@ class UserDefinedTableTests extends FunSuite{
   test("third group start") {
     assert(transformed(171) == 'c')
   }
+
+  test("table too long"){
+    assertThrows[IllegalArgumentException]{
+      UserDefinedTable("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    }
+  }
+
+  test("table too short") {
+    assertThrows[IllegalArgumentException] {
+      UserDefinedTable("")
+    }
+  }
+  test("table just right short") {
+    val okTable = UserDefinedTable("a")
+    assert(okTable.transformPixel(GreyScalePixel(42)).value == 'a')
+  }
+
+  test("table just right long") {
+    val okTable = UserDefinedTable("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    assert(okTable.transformPixel(GreyScalePixel(42)).value == 'a')
+  }
 }

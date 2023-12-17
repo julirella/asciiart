@@ -2,6 +2,9 @@ package models.tables
 
 import models.pixels.AsciiPixel
 
+/**
+ * A transformation table with only two values
+ */
 class LameTable extends TransformationTable() {
 
   override protected def createTable: Array[AsciiPixel] = {

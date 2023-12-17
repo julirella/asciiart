@@ -42,4 +42,12 @@ class RgbImageTests extends FunSuite{
     val expectedImage = RgbImage(Array(Array(pixel1), Array(pixel3)))
     assert(arrCmp.cmp2DArray(updatedImage.getPixels, expectedImage.getPixels))
   }
+
+  test("update mustn't change original image") {
+    val image = RgbImage(Array(Array(RgbPixel(1, 2, 3)), Array(RgbPixel(4, 5, 6))))
+    val originalPixels = image.getPixels
+    image.updatePixels(_.reverse)
+    val newPixels = image.getPixels
+    assert(arrCmp.cmp2DArray(originalPixels, newPixels))
+  }
 }
