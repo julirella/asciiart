@@ -5,6 +5,6 @@ object Main extends App {
   try{
     argumentParser.parseArguments()
   } catch {
-    case e: IllegalArgumentException => println(e.toString)
+    case e: IllegalArgumentException => println(e.getMessage)
   }
 }
