@@ -13,7 +13,8 @@ One of the following is required:
     * path must lead to an existing file and end int .jpg or .png
 
 ### Transformation table:
-One of the following is required:
+If no table is provided, defaults to paul-bourkes
+One of the following is allowed:
 * --table paul-bourkes
 * --table lame
 * --custom-table "characters"

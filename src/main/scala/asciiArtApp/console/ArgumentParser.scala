@@ -51,11 +51,11 @@ class ArgumentParser(var args: Array[String]) {
   }
 
   /**
-   * check that all mandatory arguments were provided
+   * check that all mandatory arguments were provided and set default for non mandatory ones
    */
   private def checkArguments(): Unit = {
     if(loadArgument.isEmpty) throw new IllegalArgumentException("missing load argument")
-    if(tableArgument.isEmpty) throw new IllegalArgumentException("missing table argument")
+    if(tableArgument.isEmpty) tableArgument = Option(BuiltInTableArgument("paul-bourkes"))
     if(outputArgument.isEmpty) throw new IllegalArgumentException("missing output argument")
   }
 
